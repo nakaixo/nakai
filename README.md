@@ -10,7 +10,7 @@ Very, very proof-of-concept stage right now, but you can run the example with...
 gleam run
 ```
 
-You'll also probably need to download and install rebar3
+You'll also probably need to download and install [rebar3](https://github.com/erlang/rebar3)
 
 <!--
 
