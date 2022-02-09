@@ -1,33 +1,34 @@
-import html/element.{Attr, Element}
+import html/attrs.{Attr}
+import node.{Node}
 
-pub fn a() -> Element {
-  element.A(attrs: [], children: [])
+pub fn a(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "a", attrs: attrs, children: children)
 }
 
-pub fn body() -> Element {
-  element.Body(attrs: [], children: [])
+pub fn body(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "body", attrs: attrs, children: children)
 }
 
-pub fn div(attrs: List(Attr), children: List(Element)) -> Element {
-  element.Div(attrs: [], children: [])
+pub fn div(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "div", attrs: attrs, children: children)
 }
 
-pub fn head() -> Element {
-  element.Head(attrs: [], children: [])
+pub fn head(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "head", attrs: attrs, children: children)
 }
 
-pub fn html() -> Element {
-  element.Html(attrs: [], children: [])
+pub fn html(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "html", attrs: attrs, children: children)
 }
 
-pub fn img(attrs: List(Attr)) -> Element {
-  element.Img(attrs: attrs)
+pub fn img(attrs: List(Attr)) -> Node {
+  node.LeafElement(tag: "img", attrs: attrs)
 }
 
-pub fn p(attrs: List(Attr), children: List(Element)) -> Element {
-  element.P(attrs: [], children: [])
+pub fn p(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "p", attrs: attrs, children: children)
 }
 
-pub fn text(content: String) -> Element {
-  element.Text(content)
+pub fn title(title: String) -> Node {
+  node.Element(tag: "title", attrs: [], children: [node.Text(title)])
 }
