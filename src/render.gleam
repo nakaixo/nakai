@@ -4,58 +4,52 @@ import html/attrs.{Attr}
 import node.{Doctype, Node}
 
 pub fn render(doctype: Doctype, root: Node) -> String {
-  let doctype_txt =
-    string_builder.from_strings(["<!DOCTYPE ", doctype.decl, ">"])
-  let txt = render_node(root)
-
   string_builder.to_string(string_builder.concat([
-    doctype_txt,
-    txt,
+    render_doctype(doctype),
+    render_node(root),
     string_builder.from_string("\n"),
   ]))
 }
 
+pub fn render_attr(attr: Attr) -> StringBuilder {
+  string_builder.from_strings([" ", attr.name, "=\"", attr.value, "\""])
+}
+
 pub fn render_attrs(attrs: List(Attr)) -> StringBuilder {
-  list.fold(
-    attrs,
-    string_builder.from_string(""),
-    fn(txt: StringBuilder, attr: Attr) {
-      string_builder.append_builder(
-        txt,
-        string_builder.from_strings([" ", attr.name, "=\"", attr.value, "\""]),
-      )
-    },
-  )
+  attrs
+  |> list.map(render_attr)
+  |> string_builder.concat
 }
 
 pub fn render_children(children: List(Node)) -> StringBuilder {
-  list.fold(
-    children,
-    string_builder.from_string(""),
-    fn(txt, child) { string_builder.append_builder(txt, render_node(child)) },
-  )
+  children
+  |> list.map(render_node)
+  |> string_builder.concat
+}
+
+pub fn render_doctype(doctype: Doctype) -> StringBuilder {
+  string_builder.from_strings(["<!DOCTYPE ", doctype.decl, ">"])
 }
 
 pub fn render_node(tree: Node) -> StringBuilder {
   case tree {
     node.Comment(content) ->
       string_builder.from_strings(["<!-- ", content, " -->"])
-    node.Element(tag, attrs, children) -> {
-      let txt = string_builder.from_strings(["<", tag])
-      let txt = string_builder.append_builder(txt, render_attrs(attrs))
-      let txt = string_builder.append(txt, ">")
-      let txt = string_builder.append_builder(txt, render_children(children))
-      string_builder.append_builder(
-        txt,
+    node.Element(tag, attrs, children) ->
+      string_builder.concat([
+        string_builder.from_strings(["<", tag]),
+        render_attrs(attrs),
+        string_builder.from_string(">"),
+        render_children(children),
         string_builder.from_strings(["</", tag, ">"]),
-      )
-    }
+      ])
     node.Fragment(children) -> render_children(children)
-    node.LeafElement(tag, attrs) -> {
-      let txt = string_builder.from_strings(["<", tag])
-      let txt = string_builder.append_builder(txt, render_attrs(attrs))
-      string_builder.append(txt, "/>")
-    }
+    node.LeafElement(tag, attrs) ->
+      string_builder.concat([
+        string_builder.from_strings(["<", tag]),
+        render_attrs(attrs),
+        string_builder.from_string(" />"),
+      ])
     node.None -> string_builder.from_string("")
     node.Text(content) -> string_builder.from_string(content)
   }

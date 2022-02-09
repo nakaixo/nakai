@@ -9,8 +9,8 @@ import node.{Node}
 import render.{render}
 
 pub fn my_service(_req) {
-  let body =
-    bit_builder.from_string(render(node.doctype("html"), create_test_page()))
+  let page = render(node.doctype("html"), create_test_page())
+  let body = bit_builder.from_string(page)
 
   io.println("Doing the thing! Oh yeah!")
 
