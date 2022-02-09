@@ -8,18 +8,19 @@ import html/attrs
 import node.{Node}
 import render.{render}
 
-pub fn my_service(_req) {
-  let page = render(node.doctype("html"), create_test_page())
-  let body = bit_builder.from_string(page)
+pub fn test_service(_req) {
+  io.println("nakai: 200 OK /")
 
-  io.println("Doing the thing! Oh yeah!")
+  let body =
+    render(node.doctype("html"), create_test_page())
+    |> bit_builder.from_string
 
   http.response(200)
   |> http.set_resp_body(body)
 }
 
 pub fn start() {
-  elli.start(my_service, on_port: 3000)
+  elli.start(test_service, on_port: 3000)
 }
 
 fn create_test_page() -> Node {
