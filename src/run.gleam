@@ -33,7 +33,7 @@ fn create_test_page() -> Node {
           html.div(
             [attrs.id("hi")],
             [
-              node.comment("Hayleigh is my bff"),
+              node.comment("Comments are fun!"),
               html.p([], [node.text("Hey friend!")]),
               node.none(),
               html.img([
