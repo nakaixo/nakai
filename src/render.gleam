@@ -3,7 +3,7 @@ import gleam/string_builder.{StringBuilder}
 import html/attrs.{Attr}
 import node.{Doctype, Node}
 
-pub fn render(doctype: Doctype, root: Node) -> String {
+pub fn render(doctype doctype: Doctype, root: Node) -> String {
   string_builder.to_string(string_builder.concat([
     render_doctype(doctype),
     render_node(root),
