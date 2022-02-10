@@ -7,6 +7,7 @@ pub type Doctype {
 
 pub type Node {
   Comment(content: String)
+  Component(factory: fn() -> Node)
   Element(tag: String, attrs: List(Attr), children: List(Node))
   Fragment(children: List(Node))
   LeafElement(tag: String, attrs: List(Attr))
@@ -16,6 +17,14 @@ pub type Node {
 
 pub fn comment(content: String) -> Node {
   Comment(content)
+}
+
+pub fn const_component(decl: fn() -> Node) -> Node {
+  Component(decl)
+}
+
+pub fn component(decl: fn(props_type) -> Node, props: props_type) -> Node {
+  Component(fn() { decl(props) })
 }
 
 pub fn doctype(decl: String) -> Doctype {

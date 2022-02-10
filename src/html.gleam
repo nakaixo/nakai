@@ -21,6 +21,30 @@ pub fn html(attrs: List(Attr), children: List(Node)) -> Node {
   node.Element(tag: "html", attrs: attrs, children: children)
 }
 
+pub fn h1(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "h1", attrs: attrs, children: children)
+}
+
+pub fn h2(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "h2", attrs: attrs, children: children)
+}
+
+pub fn h3(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "h3", attrs: attrs, children: children)
+}
+
+pub fn h4(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "h4", attrs: attrs, children: children)
+}
+
+pub fn h5(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "h5", attrs: attrs, children: children)
+}
+
+pub fn h6(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "h6", attrs: attrs, children: children)
+}
+
 pub fn img(attrs: List(Attr)) -> Node {
   node.LeafElement(tag: "img", attrs: attrs)
 }

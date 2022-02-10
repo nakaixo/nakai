@@ -35,6 +35,7 @@ pub fn render_node(tree: Node) -> StringBuilder {
   case tree {
     node.Comment(content) ->
       string_builder.from_strings(["<!-- ", content, " -->"])
+    node.Component(factory) -> render_node(factory())
     node.Element(tag, attrs, children) ->
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
