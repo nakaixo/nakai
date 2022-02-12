@@ -25,9 +25,17 @@ pub fn app(props: AppProps) -> Node {
     [
       html.h1([], [node.text(title)]),
       node.comment("Comments are fun!"),
-      html.p([], [node.text("Hey friend!")]),
+      html.p(
+        [],
+        [node.text("This page is generated dynamically by the server!")],
+      ),
       node.none(),
-      html.img([attrs.src("http://www.google.com/intl/en_ALL/images/logo.gif")]),
+      html.img([
+        attrs.width("600"),
+        attrs.src(
+          "https://cdn.mckayla.art/photography/public/21.4.11/24KbSezrV5BUtSQwi-ygI.jpg",
+        ),
+      ]),
     ],
   )
 }

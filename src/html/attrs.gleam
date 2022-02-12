@@ -9,3 +9,7 @@ pub fn id(id: String) -> Attr {
 pub fn src(src: String) -> Attr {
   Attr(name: "src", value: src)
 }
+
+pub fn width(width: String) -> Attr {
+  Attr(name: "width", value: width)
+}
