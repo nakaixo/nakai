@@ -7,6 +7,14 @@ pub fn attr(name: String, value: String) -> Attr {
 }
 
 // Shorthand functions for common attributes
+pub fn class(value: String) -> Attr {
+  Attr(name: "class", value: value)
+}
+
+pub fn height(value: String) -> Attr {
+  Attr(name: "height", value: value)
+}
+
 pub fn id(id: String) -> Attr {
   Attr(name: "id", value: id)
 }
