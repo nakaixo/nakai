@@ -2,7 +2,7 @@ import html/attrs.{Attr}
 import node.{Node}
 
 pub fn node(tag: String, attrs: List(Attr), children: List(Node)) -> Node {
-  node.Element(tag: "div", attrs: attrs, children: children)
+  node.Element(tag: tag, attrs: attrs, children: children)
 }
 
 // Shorthand functions for common elements

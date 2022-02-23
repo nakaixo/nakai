@@ -1,6 +1,8 @@
 import gleam/bit_builder
 import gleam/http
 import gleam/http/elli
+import gleam/http/request.{Request}
+import gleam/http/response.{Response}
 import gleam/io
 import gleam/map
 import example
@@ -9,7 +11,7 @@ import html/attrs
 import node
 import render.{render}
 
-pub fn test_service(_req) {
+pub fn test_service(_req: Request(t)) {
   io.println("nakai: 200 OK /")
 
   node.const_component(example.page)
@@ -18,8 +20,9 @@ pub fn test_service(_req) {
   |> ok
 }
 
-fn ok(body: a) -> http.Response(a) {
-  http.set_resp_body(http.response(200), body)
+fn ok(body: a) -> Response(a) {
+  response.new(200)
+  |> response.set_body(body)
 }
 
 pub fn start() {

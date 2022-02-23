@@ -1,13 +1,13 @@
 name = "nakai"
 version = "0.1.0"
-# licences = ["MIT"]
-# description = "A proof-of-concept library for making web apps with Gleam"
-# repository = { type = "github", user = "aslilac", repo = "nakai" }
+licences = ["MIT"]
+description = "A proof-of-concept library for making web apps with Gleam"
+repository = { type = "github", user = "aslilac", repo = "nakai" }
 
 [dependencies]
-gleam_stdlib = "~> 0.19"
-gleam_http = "~> 2.1"
-gleam_elli = "~> 0.5"
+gleam_stdlib = "~> 0.20"
+gleam_http = "~> 3.0"
+gleam_elli = "~> 1.1"
 gleam_erlang = "~> 0.9"
 
 [dev-dependencies]
