@@ -58,6 +58,10 @@ pub fn p(attrs: List(Attr), children: List(Node)) -> Node {
   node.Element(tag: "p", attrs: attrs, children: children)
 }
 
+pub fn section(attrs: List(Attr), children: List(Node)) -> Node {
+  node.Element(tag: "section", attrs: attrs, children: children)
+}
+
 pub fn title(title: String) -> Node {
   node.Element(tag: "title", attrs: [], children: [node.Text(title)])
 }

@@ -35,7 +35,9 @@ pub fn render_node(tree: Node) -> StringBuilder {
   case tree {
     node.Comment(content) ->
       string_builder.from_strings(["<!-- ", content, " -->"])
+
     node.Component(factory) -> render_node(factory())
+
     node.Element(tag, attrs, children) ->
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
@@ -44,14 +46,18 @@ pub fn render_node(tree: Node) -> StringBuilder {
         render_children(children),
         string_builder.from_strings(["</", tag, ">"]),
       ])
+
     node.Fragment(children) -> render_children(children)
+
     node.LeafElement(tag, attrs) ->
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
         render_attrs(attrs),
         string_builder.from_string(" />"),
       ])
-    node.None -> string_builder.from_string("")
+
+    node.None -> string_builder.new()
+
     node.Text(content) -> string_builder.from_string(content)
   }
 }

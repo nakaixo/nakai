@@ -19,6 +19,7 @@ pub fn id(id: String) -> Attr {
   Attr(name: "id", value: id)
 }
 
+// TODO: This should probably take `value: Bool = true` once Gleam has defaulted arguments
 pub fn focus() -> Attr {
   Attr(name: "focus", value: "true")
 }
