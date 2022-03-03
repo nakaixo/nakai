@@ -6,6 +6,11 @@ pub fn attr(name: String, value: String) -> Attr {
   Attr(name: name, value: value)
 }
 
+// TODO: This should probably take `value: Bool = true` once Gleam has defaulted arguments
+pub fn autofocus() -> Attr {
+  Attr(name: "focus", value: "true")
+}
+
 // Shorthand functions for common attributes
 pub fn class(value: String) -> Attr {
   Attr(name: "class", value: value)
@@ -17,11 +22,6 @@ pub fn height(value: String) -> Attr {
 
 pub fn id(id: String) -> Attr {
   Attr(name: "id", value: id)
-}
-
-// TODO: This should probably take `value: Bool = true` once Gleam has defaulted arguments
-pub fn focus() -> Attr {
-  Attr(name: "focus", value: "true")
 }
 
 pub fn src(src: String) -> Attr {
