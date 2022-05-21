@@ -1,4 +1,3 @@
-import gleam/function
 import gleam/html
 import gleam/list
 import gleeunit
@@ -10,13 +9,14 @@ pub fn main() {
 }
 
 pub fn hi_friend_test() {
-  nakai.html(html.div([], [html.Text("Hi friend!")]))
+  html.div([], [html.Text("Hi friend!")])
+  |> nakai.html
   |> nakai.render
   |> should.equal("<div>Hi friend!</div>")
 }
 
 pub fn hi_friend_doc_test() {
-  nakai.html(html.div([], [html.Text("Hi friend!")]))
+  html.div([], [html.Text("Hi friend!")])
   |> nakai.html
   |> nakai.render_doc(doctype: html.doctype("html"))
   |> should.equal("<!DOCTYPE html><div>Hi friend!</div>\n")
