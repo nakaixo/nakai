@@ -20,8 +20,16 @@ pub fn height(value: String) -> Attr {
   Attr(name: "height", value: value)
 }
 
+pub fn href(href: String) -> Attr {
+  Attr(name: "href", value: href)
+}
+
 pub fn id(id: String) -> Attr {
   Attr(name: "id", value: id)
+}
+
+pub fn rel(rel: String) -> Attr {
+  Attr(name: "rel", value: rel)
 }
 
 pub fn src(src: String) -> Attr {
