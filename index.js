@@ -1,4 +1,4 @@
-import { serve } from "std/http/server.ts";
+import { serve } from "https://deno.land/std@0.140.0/http/server.ts";
 import { hi_friend } from "./build/dev/javascript/nakai/dist/hi.mjs";
 
 function handler(req) {
