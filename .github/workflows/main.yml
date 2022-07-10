@@ -45,6 +45,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: gleam-build
+          path: build/
+
+      - run: ls
+      - run: ls build/
 
       - uses: denoland/deployctl@v1
         with:
