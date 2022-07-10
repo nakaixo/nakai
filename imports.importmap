@@ -1,0 +1,6 @@
+{
+	"imports": {
+		"std/": "https://deno.land/std@0.140.0/",
+		"succulent": "https://esm.sh/succulent@0.18.0"
+	}
+}
