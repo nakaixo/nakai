@@ -1,5 +1,7 @@
 # Nakai
 
+![banner image](https://github.com/nakaibuild/.github/profile/BANNER.webp)
+
 [![Documentation](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/nakai/)
 
 Like React (sort of), mixed with Rails (sort of), but in Gleam
