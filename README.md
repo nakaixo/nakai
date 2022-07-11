@@ -1,6 +1,4 @@
-# Nakai
-
-![banner image](https://media.githubusercontent.com/media/nakaibuild/.github/main/profile/BANNER.webp)
+![Nakai](https://media.githubusercontent.com/media/nakaibuild/.github/main/profile/BANNER.webp)
 
 [![Documentation](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/nakai/)
 
