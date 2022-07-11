@@ -2,7 +2,7 @@ name = "nakai"
 version = "0.2.0"
 licences = ["MIT"]
 description = "A proof-of-concept library for making web apps with Gleam"
-repository = { type = "github", user = "aslilac", repo = "nakai" }
+repository = { type = "github", user = "nakaibuild", repo = "nakai" }
 
 [dependencies]
 gleam_stdlib = "~> 0.21"
