@@ -1,4 +1,3 @@
-import gleam/io
 import gleam/list
 import gleam/string_builder.{StringBuilder}
 import nakai/html.{Node}
@@ -29,7 +28,7 @@ pub fn render_attr(attr: Attr(a)) -> AttrRender(a) {
     Event(name, action) -> {
       let ref = "test-ref"
       string_builder.from_strings([" data-nakai-ref-", name, "=\"", ref, "\""])
-      |> AttrRender([io.debug(EventState(name, ref, action))])
+      |> AttrRender([EventState(name, ref, action)])
     }
   }
 }
@@ -93,7 +92,6 @@ pub fn render_node(tree: Node(a)) -> State(a) {
 
     html.Nothing -> state.new()
   }
-  |> io.debug
 }
 
 pub fn render_root(tree: Node(a)) -> StringBuilder {
@@ -109,7 +107,7 @@ pub fn render_root(tree: Node(a)) -> StringBuilder {
 }
 
 fn generate_events_code(events: List(EventState(a))) -> StringBuilder {
-  case io.debug(events) {
+  case events {
     [] -> string_builder.new()
     _ ->
       events
