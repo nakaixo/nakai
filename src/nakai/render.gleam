@@ -1,57 +1,141 @@
-import gleam/html
-import gleam/html/attrs.{Attr}
-import gleam/html/doctype.{Doctype}
+import gleam/io
 import gleam/list
 import gleam/string_builder.{StringBuilder}
-import nakai/nakai.{Node}
+import nakai/html.{Node}
+import nakai/html/attrs.{Attr, Event}
+import nakai/html/doctype.{Doctype}
+import nakai/render/state.{EventState, State}
 
-pub fn render_attr(attr: Attr) -> StringBuilder {
-  string_builder.from_strings([" ", attr.name, "=\"", attr.value, "\""])
+pub type AttrRender(a) {
+  AttrRender(text: StringBuilder, events: List(EventState(a)))
 }
 
-pub fn render_attrs(attrs: List(Attr)) -> StringBuilder {
+pub fn new() -> AttrRender(a) {
+  AttrRender(string_builder.new(), [])
+}
+
+pub fn append(before: AttrRender(a), add: AttrRender(a)) -> AttrRender(a) {
+  AttrRender(
+    string_builder.append_builder(before.text, add.text),
+    list.append(before.events, add.events),
+  )
+}
+
+pub fn render_attr(attr: Attr(a)) -> AttrRender(a) {
+  case attr {
+    Attr(name, value) ->
+      string_builder.from_strings([" ", name, "=\"", value, "\""])
+      |> AttrRender([])
+    Event(name, action) -> {
+      let ref = "test-ref"
+      string_builder.from_strings([" data-nakai-ref-", name, "=\"", ref, "\""])
+      |> AttrRender([io.debug(EventState(name, ref, action))])
+    }
+  }
+}
+
+pub fn render_attrs(attrs: List(Attr(a))) -> AttrRender(a) {
   attrs
   |> list.map(render_attr)
-  |> string_builder.concat
+  |> list.fold(new(), append)
 }
 
-pub fn render_children(children: List(Node)) -> StringBuilder {
+pub fn render_children(children: List(Node(a))) -> State(a) {
   children
   |> list.map(render_node)
-  |> string_builder.concat
+  |> list.fold(state.new(), state.append)
 }
 
 pub fn render_doctype(doctype: Doctype) -> StringBuilder {
   string_builder.from_strings(["<!DOCTYPE ", doctype.decl, ">"])
 }
 
-pub fn render_node(tree: Node) -> StringBuilder {
+pub fn render_node(tree: Node(a)) -> State(a) {
   case tree {
-    nakai.Component(factory) -> render_node(factory())
+    html.Head(children) ->
+      render_children(children)
+      |> state.headify
 
-    nakai.Fragment(children) -> render_children(children)
+    html.Component(factory) -> render_node(factory())
 
-    nakai.HtmlNode(html_node) ->
-      case html_node {
-        html.Comment(content) ->
-          string_builder.from_strings(["<!-- ", content, " -->"])
-        html.Element(tag, attrs, children) ->
-          string_builder.concat([
-            string_builder.from_strings(["<", tag]),
-            render_attrs(attrs),
-            string_builder.from_string(">"),
-            render_children(list.map(children, nakai.HtmlNode)),
-            string_builder.from_strings(["</", tag, ">"]),
+    html.Fragment(children) -> render_children(children)
+
+    html.Comment(content) ->
+      string_builder.from_strings(["<!-- ", content, " -->"])
+      |> state.body_only([])
+
+    html.Element(tag, attrs, children) -> {
+      let state = render_children(children)
+      let attr_render = render_attrs(attrs)
+      string_builder.concat([
+        string_builder.from_strings(["<", tag]),
+        attr_render.text,
+        string_builder.from_string(">"),
+        state.body,
+        string_builder.from_strings(["</", tag, ">"]),
+      ])
+      |> State(state.head, _, list.append(state.events, attr_render.events))
+    }
+
+    html.LeafElement(tag, attrs) -> {
+      let attr_render = render_attrs(attrs)
+      string_builder.concat([
+        string_builder.from_strings(["<", tag]),
+        attr_render.text,
+        string_builder.from_string(" />"),
+      ])
+      |> state.body_only(attr_render.events)
+    }
+
+    html.Text(content) ->
+      string_builder.from_string(content)
+      |> state.body_only([])
+
+    html.Nothing -> state.new()
+  }
+  |> io.debug
+}
+
+pub fn render_root(tree: Node(a)) -> StringBuilder {
+  let result = render_node(tree)
+  string_builder.concat([
+    string_builder.from_string("<html>\n<head>"),
+    result.head,
+    string_builder.from_string("</head>\n<body>"),
+    result.body,
+    generate_events_code(result.events),
+    string_builder.from_string("</body>\n</html>"),
+  ])
+}
+
+fn generate_events_code(events: List(EventState(a))) -> StringBuilder {
+  case io.debug(events) {
+    [] -> string_builder.new()
+    _ ->
+      events
+      |> list.map(fn(event) {
+        let selector =
+          string_builder.from_strings([
+            "[data-nakai-ref-",
+            event.name,
+            "=\"",
+            event.ref,
+            "\"]",
           ])
-        html.LeafElement(tag, attrs) ->
-          string_builder.concat([
-            string_builder.from_strings(["<", tag]),
-            render_attrs(attrs),
-            string_builder.from_string(" />"),
-          ])
-        html.Text(content) -> string_builder.from_string(content)
-      }
-
-    nakai.None -> string_builder.new()
+          |> string_builder.to_string
+        string_builder.from_strings([
+          "window.addEventListener(\"DOMContentLoaded\", function() {
+          document.querySelector('",
+          selector,
+          "')
+          .addEventListener('",
+          event.name,
+          "', () => console.log(\"doing the thing!!!\"));
+          });\n",
+        ])
+      })
+      |> string_builder.concat
+      |> string_builder.prepend("<script>\n")
+      |> string_builder.append("\n</script>")
   }
 }
