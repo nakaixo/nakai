@@ -1,0 +1,65 @@
+[
+	{
+		"variant": "ConstAttr",
+		"name": "autofocus",
+		"value": "true"
+	},
+	{
+		"variant": "Attr",
+		"name": "class"
+	},
+	{
+		"variant": "Attr",
+		"name": "content"
+	},
+	{
+		"variant": "ConstAttr",
+		"name": "crossorigin",
+		"value": "true"
+	},
+	{
+		"variant": "Attr",
+		"name": "height"
+	},
+	{
+		"variant": "Attr",
+		"name": "href"
+	},
+	{
+		"variant": "Attr",
+		"name": "id"
+	},
+	{
+		"variant": "Attr",
+		"name": "name"
+	},
+	{
+		"variant": "Attr",
+		"name": "property"
+	},
+	{
+		"variant": "Attr",
+		"name": "rel"
+	},
+	{
+		"variant": "Attr",
+		"name": "src"
+	},
+	{
+		"variant": "Attr",
+		"name": "style"
+	},
+	{ "variant": "Attr", "name": "target" },
+	{
+		"variant": "Attr",
+		"name": "title"
+	},
+	{
+		"variant": "Attr",
+		"name": "value"
+	},
+	{
+		"variant": "Attr",
+		"name": "width"
+	}
+]

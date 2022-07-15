@@ -1,4 +1,16 @@
-*.beam
-*.ez
-build
-erl_crash.dump
+.DS_Store
+.env*
+.idea/
+.nova/
+.vscode/
+build/
+dist/
+node_modules/
+target/
+*.log
+*.pyc
+*.tsbuildinfo
+
+# Generated files
+src/nakai/html/attrs.gleam
+src/nakai/html.gleam
