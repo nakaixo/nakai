@@ -20,6 +20,11 @@ jobs:
           otp-version: "25.0"
           gleam-version: "0.22.1"
 
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+
       - run: gleam format --check
 
       - run: make
