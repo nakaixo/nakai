@@ -22,6 +22,6 @@ jobs:
 
       - run: gleam format --check
 
-      - run: gleam test
+      - run: make
 
-      - run: gleam build --target=javascript
+      - run: gleam test
