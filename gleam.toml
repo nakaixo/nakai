@@ -1,7 +1,7 @@
 name = "nakai"
-version = "0.3.1"
+version = "0.3.2"
 licences = ["MIT"]
-description = "A proof-of-concept library for making web apps with Gleam"
+description = "A server-side rendering framework for building web apps with Gleam ✨"
 repository = { type = "github", user = "nakaibuild", repo = "nakai" }
 
 [dependencies]
