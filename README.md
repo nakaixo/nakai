@@ -1,4 +1,4 @@
-![Nakai](https://media.githubusercontent.com/media/nakaibuild/.github/main/profile/BANNER.webp)
+![Nakai](https://cdn.mckayla.cloud/-/bc0c2f543cd4411f93d9ea7712aafb74/BANNER.webp)
 
 [![Documentation](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/nakai/)
 
