@@ -1,5 +1,9 @@
 [
   {
+    "variant": "Attr",
+    "name": "alt"
+  },
+  {
     "variant": "ConstAttr",
     "name": "autofocus",
     "value": "true"
