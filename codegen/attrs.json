@@ -174,7 +174,8 @@
 	},
 	{
 		"variant": "Attr",
-		"name": "type"
+		"name": "type",
+		"fn": "type_"
 	},
 	{
 		"variant": "Attr",

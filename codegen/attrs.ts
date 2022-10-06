@@ -1,13 +1,13 @@
 type AttrDef =
-	| { variant: "Attr"; name: string }
-	| { variant: "ConstAttr"; name: string; value: string };
+	| { variant: "Attr"; fn: string; name: string }
+	| { variant: "ConstAttr"; fn: string; name: string; value: string };
 
 const makeAttrSource = (def: AttrDef) => {
-	const { name, variant } = def;
+	const { fn, name, variant } = def;
 
 	if (variant === "Attr")
 		return `
-pub fn ${name.replaceAll("-", "_")}(value: String) -> Attr(a) {
+pub fn ${fn ?? name.replaceAll("-", "_")}(value: String) -> Attr(a) {
   Attr(name: "${name}", value: value)
 }
 `;
