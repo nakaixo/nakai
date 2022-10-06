@@ -1,2 +1,2 @@
-import "./gen_html.ts";
-import "./gen_attrs.ts";
+import "./html.ts";
+import "./attrs.ts";

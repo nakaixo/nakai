@@ -7,7 +7,7 @@ const makeAttrSource = (def: AttrDef) => {
 
 	if (variant === "Attr")
 		return `
-pub fn ${name}(value: String) -> Attr(a) {
+pub fn ${name.replaceAll("-", "_")}(value: String) -> Attr(a) {
   Attr(name: "${name}", value: value)
 }
 `;
@@ -25,9 +25,7 @@ const base = await fetch(new URL("./attrs.gleam", import.meta.url)).then(
 );
 const attrList = await fetch(new URL("./attrs.json", import.meta.url))
 	.then((response) => response.json())
-	.then((list: AttrDef[]) =>
-		list.sort((a, b) => a.name.localeCompare(b.name)),
-	);
+	.then((list: AttrDef[]) => list.sort((a, b) => a.name.localeCompare(b.name)));
 
 const prefix = `
 
