@@ -48,6 +48,14 @@ pub fn head_test() {
   )
 }
 
+pub fn html_attrs_test() {
+  html.p_text([], "Hello!")
+  |> nakai.render_with_document_attrs([attrs.lang("en-US")])
+  |> should.equal(
+    "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head></head>\n<body><p>Hello!</p></body>\n</html>\n",
+  )
+}
+
 pub fn hi_friend_doc_test() {
   html.div([], [html.Text("Hi friend!")])
   |> nakai.render_with_doctype(doctype: html.doctype("custom"))

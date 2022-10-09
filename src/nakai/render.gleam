@@ -94,14 +94,18 @@ pub fn render_node(tree: Node(a)) -> State(a) {
   }
 }
 
-pub fn render_root(tree: Node(a)) -> StringBuilder {
+pub fn render_root(tree: Node(a), attrs: List(Attr(a))) -> StringBuilder {
   let result = render_node(tree)
+  let attr_render = render_attrs(attrs)
+  let events = list.append(result.events, attr_render.events)
   string_builder.concat([
-    string_builder.from_string("<html>\n<head>"),
+    string_builder.from_string("<html"),
+    attr_render.text,
+    string_builder.from_string(">\n<head>"),
     result.head,
     string_builder.from_string("</head>\n<body>"),
     result.body,
-    generate_events_code(result.events),
+    generate_events_code(events),
     string_builder.from_string("</body>\n</html>"),
   ])
 }
