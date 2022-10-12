@@ -18,6 +18,10 @@ pub fn meta(name name: String, content content: String) {
   html.head([html.meta([attrs.name(name), attrs.content(content)])])
 }
 
+pub fn http_equiv(header: String, content content: String) {
+  html.head([html.meta([attrs.http_equiv(header), attrs.content(content)])])
+}
+
 pub fn charset(charset: String) {
   html.head([html.meta([attrs.charset(charset)])])
 }
