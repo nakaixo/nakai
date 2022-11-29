@@ -5,7 +5,7 @@ description = "A server-side rendering framework for building web apps with Glea
 repository = { type = "github", user = "nakaibuild", repo = "nakai" }
 
 [dependencies]
-gleam_stdlib = "~> 0.23"
+gleam_stdlib = "~> 0.25"
 
 [dev-dependencies]
-gleeunit = "~> 0.6"
+gleeunit = "~> 0.7"
