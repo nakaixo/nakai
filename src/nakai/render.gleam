@@ -88,6 +88,12 @@ pub fn render_node(tree: Node(a)) -> State(a) {
 
     html.Text(content) ->
       string_builder.from_string(content)
+      |> string_builder.replace("<", "&lt;")
+      |> string_builder.replace(">", "&gt;")
+      |> state.body_only([])
+
+    html.UnsafeText(content) ->
+      string_builder.from_string(content)
       |> state.body_only([])
 
     html.Nothing -> state.new()

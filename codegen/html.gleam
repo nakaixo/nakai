@@ -7,6 +7,7 @@ pub type Node(a) {
   Element(tag: String, attrs: List(Attr(a)), children: List(Node(a)))
   LeafElement(tag: String, attrs: List(Attr(a)))
   Text(content: String)
+  UnsafeText(content: String)
   Component(factory: fn() -> Node(a))
   Fragment(children: List(Node(a)))
   Nothing
