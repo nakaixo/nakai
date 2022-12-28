@@ -84,3 +84,9 @@ pub fn puppies_test() {
     "<ul><li>Dot is a good and soft puppy</li><li>Mady is a good and soft puppy</li></ul>",
   )
 }
+
+pub fn sanitization_test() {
+  html.div_text([], "<script>alert('pwned');</script>")
+  |> nakai.render
+  |> equal_doc("<div>&lt;script&gt;alert('pwned');&lt;/script&gt;</div>")
+}
