@@ -40,7 +40,7 @@ pub fn render_with_document_attrs(root: Node(a), attrs: List(Attr(a))) -> String
   |> string_builder.to_string
 }
 
-pub fn render_with_doctype(doctype doctype: Doctype, root: Node(a)) -> String {
+pub fn render_with_doctype(doctype doctype: Doctype, root root: Node(a)) -> String {
   string_builder.concat([
     render.render_doctype(doctype),
     string_builder.from_string("\n"),
