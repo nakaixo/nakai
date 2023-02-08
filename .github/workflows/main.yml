@@ -20,7 +20,7 @@ jobs:
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "25.0"
-          gleam-version: "0.25.3"
+          gleam-version: "0.26.1"
 
       - uses: denoland/setup-deno@v1
         with:
