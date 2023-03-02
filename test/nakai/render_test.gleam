@@ -1,6 +1,7 @@
 import gleam/erlang/file
 import gleam/erlang/os
 import gleam/list
+import gleam/string_builder.{StringBuilder}
 import gleeunit/should
 import nakai
 import nakai/head
@@ -8,7 +9,9 @@ import nakai/html
 import nakai/html/attrs
 import nakai/html/events
 
-pub fn snapshot(result: String, snapshot_file: String) {
+pub fn snapshot(result: StringBuilder, snapshot_file: String) {
+  let result = string_builder.to_string(result)
+
   case os.get_env("SNAPSHOT") {
     // Check against existing snapshots!
     Error(Nil) | Ok("0") | Ok("false") ->
