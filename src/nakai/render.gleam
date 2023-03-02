@@ -4,6 +4,11 @@ import nakai/html.{Node}
 import nakai/html/attrs.{Attr, Event}
 import nakai/render/state.{EventState, State}
 
+const document_encoding = "
+<meta charset=\"utf-8\" />
+<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
+"
+
 pub type AttrRender(a) {
   AttrRender(text: StringBuilder, events: List(EventState(a)))
 }
@@ -106,7 +111,7 @@ pub fn render_root(tree: Node(a), attrs: List(Attr(a))) -> StringBuilder {
   string_builder.concat([
     string_builder.from_string("<html"),
     attr_render.text,
-    string_builder.from_string(">\n<head>"),
+    string_builder.from_string(">\n<head>" <> document_encoding),
     result.head,
     string_builder.from_string("</head>\n<body>"),
     result.body,
