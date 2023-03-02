@@ -57,7 +57,7 @@ pub fn html_attrs_test() {
 
 pub fn hi_friend_doc_test() {
   html.div([], [html.Text("Hi friend!")])
-  |> nakai.render_with_doctype(doctype: html.doctype("custom"))
+  |> nakai.render_with_doctype(doctype: "custom")
   |> snapshot("./test/testdata/hi_friend_doc.html")
 }
 

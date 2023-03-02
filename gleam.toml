@@ -10,3 +10,6 @@ gleam_stdlib = "~> 0.27"
 [dev-dependencies]
 gleam_erlang = "~> 0.18"
 gleeunit = "~> 0.10"
+
+[documentation]
+hidden_modules = ["nakai/render", "nakai/render/*"]

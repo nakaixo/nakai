@@ -1,7 +1,6 @@
 import gleam/string_builder
 import nakai/html.{Component, Fragment, Node, Nothing}
 import nakai/html/attrs.{Attr}
-import nakai/html/doctype.{Doctype}
 import nakai/render
 
 pub fn const_component(func: fn() -> Node(a)) -> Node(a) {
@@ -22,7 +21,7 @@ pub fn nothing() -> Node(a) {
 
 pub fn render(root: Node(a)) -> String {
   string_builder.concat([
-    render.render_doctype(html.doctype("html")),
+    render.render_doctype("html"),
     string_builder.from_string("\n"),
     render.render_root(root, []),
     string_builder.from_string("\n"),
@@ -32,7 +31,7 @@ pub fn render(root: Node(a)) -> String {
 
 pub fn render_with_document_attrs(root: Node(a), attrs: List(Attr(a))) -> String {
   string_builder.concat([
-    render.render_doctype(html.doctype("html")),
+    render.render_doctype("html"),
     string_builder.from_string("\n"),
     render.render_root(root, attrs),
     string_builder.from_string("\n"),
@@ -41,7 +40,7 @@ pub fn render_with_document_attrs(root: Node(a), attrs: List(Attr(a))) -> String
 }
 
 pub fn render_with_doctype(
-  doctype doctype: Doctype,
+  doctype doctype: String,
   root root: Node(a),
 ) -> String {
   string_builder.concat([

@@ -2,7 +2,6 @@ import gleam/list
 import gleam/string_builder.{StringBuilder}
 import nakai/html.{Node}
 import nakai/html/attrs.{Attr, Event}
-import nakai/html/doctype.{Doctype}
 import nakai/render/state.{EventState, State}
 
 pub type AttrRender(a) {
@@ -45,8 +44,8 @@ pub fn render_children(children: List(Node(a))) -> State(a) {
   |> list.fold(state.new(), state.append)
 }
 
-pub fn render_doctype(doctype: Doctype) -> StringBuilder {
-  string_builder.from_strings(["<!DOCTYPE ", doctype.decl, ">"])
+pub fn render_doctype(doctype: String) -> StringBuilder {
+  string_builder.from_strings(["<!DOCTYPE ", doctype, ">"])
 }
 
 pub fn render_node(tree: Node(a)) -> State(a) {

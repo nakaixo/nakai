@@ -1,5 +1,4 @@
 import nakai/html/attrs.{Attr}
-import nakai/html/doctype.{Doctype}
 
 pub type Node(a) {
   Head(children: List(Node(a)))
@@ -11,10 +10,6 @@ pub type Node(a) {
   Component(factory: fn() -> Node(a))
   Fragment(children: List(Node(a)))
   Nothing
-}
-
-pub fn doctype(decl: String) -> Doctype {
-  Doctype(decl)
 }
 
 pub fn head(children: List(Node(a))) -> Node(a) {
