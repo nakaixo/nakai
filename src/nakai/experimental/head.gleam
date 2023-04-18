@@ -2,7 +2,7 @@ import nakai/html
 import nakai/html/attrs
 
 pub fn title(title: String) {
-  html.Head([html.title([], [html.Text(title)])])
+  html.Head([html.title(title)])
 }
 
 pub fn link(rel rel: String, href href: String) {

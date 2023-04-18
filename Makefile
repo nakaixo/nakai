@@ -1,19 +1,22 @@
 SHELL := /bin/bash
-DENO ?= $(shell which deno)
 GLEAM ?= $(shell which gleam)
 
-.PHONY: codegen gleam_build
 
-all: codegen gleam_build
+all: build
+.PHONY: all
 
-test: codegen
-	@$(GLEAM) test
-
-codegen: | src/nakai/html/
-	@$(DENO) run --allow-read --allow-write ./codegen/gen.ts
-
-gleam_build: codegen
+# `gleam run -m ...` does a full build, but we need to run it again after our codegen
+# step, or we might end up with the build artifacts being stale, if the new generated
+# is different.
+build:
+	@$(GLEAM) run -m nakai/codegen
 	@$(GLEAM) build
+.PHONY: build
 
-src/nakai/html/:
-	@mkdir -p src/nakai/html/
+docs: build
+	@$(GLEAM) docs build
+.PHONY: docs
+
+test: build
+	@$(GLEAM) test
+.PHONY: test

@@ -1,434 +1,430 @@
 [
-  {
-    "variant": "Element",
-    "name": "a"
-  },
-  {
-    "variant": "Element",
-    "name": "abbr"
-  },
-  {
-    "variant": "Element",
-    "name": "address"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "area"
-  },
-  {
-    "variant": "Element",
-    "name": "article"
-  },
-  {
-    "variant": "Element",
-    "name": "aside"
-  },
-  {
-    "variant": "Element",
-    "name": "audio"
-  },
-  {
-    "variant": "Element",
-    "name": "b"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "base"
-  },
-  {
-    "variant": "Element",
-    "name": "bdi"
-  },
-  {
-    "variant": "Element",
-    "name": "bdo"
-  },
-  {
-    "variant": "Element",
-    "name": "blockquote"
-  },
-  {
-    "variant": "Element",
-    "name": "body"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "br"
-  },
-  {
-    "variant": "Element",
-    "name": "button"
-  },
-  {
-    "variant": "Element",
-    "name": "canvas"
-  },
-  {
-    "variant": "Element",
-    "name": "caption"
-  },
-  {
-    "variant": "Element",
-    "name": "cite"
-  },
-  {
-    "variant": "Element",
-    "name": "code"
-  },
-  {
-    "variant": "Element",
-    "name": "col"
-  },
-  {
-    "variant": "Element",
-    "name": "colgroup"
-  },
-  {
-    "variant": "Element",
-    "name": "data"
-  },
-  {
-    "variant": "Element",
-    "name": "datalist"
-  },
-  {
-    "variant": "Element",
-    "name": "dd"
-  },
-  {
-    "variant": "Element",
-    "name": "del"
-  },
-  {
-    "variant": "Element",
-    "name": "details"
-  },
-  {
-    "variant": "Element",
-    "name": "dfn"
-  },
-  {
-    "variant": "Element",
-    "name": "dialog"
-  },
-  {
-    "variant": "Element",
-    "name": "div"
-  },
-  {
-    "variant": "Element",
-    "name": "dl"
-  },
-  {
-    "variant": "Element",
-    "name": "dt"
-  },
-  {
-    "variant": "Element",
-    "name": "em"
-  },
-  {
-    "variant": "Element",
-    "name": "embed"
-  },
-  {
-    "variant": "Element",
-    "name": "fieldset"
-  },
-  {
-    "variant": "Element",
-    "name": "figcaption"
-  },
-  {
-    "variant": "Element",
-    "name": "figure"
-  },
-  {
-    "variant": "Element",
-    "name": "footer"
-  },
-  {
-    "variant": "Element",
-    "name": "form"
-  },
-  {
-    "variant": "Element",
-    "name": "h1"
-  },
-  {
-    "variant": "Element",
-    "name": "h2"
-  },
-  {
-    "variant": "Element",
-    "name": "h3"
-  },
-  {
-    "variant": "Element",
-    "name": "h4"
-  },
-  {
-    "variant": "Element",
-    "name": "h5"
-  },
-  {
-    "variant": "Element",
-    "name": "h6"
-  },
-  {
-    "variant": "Element",
-    "name": "header"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "hr"
-  },
-  {
-    "variant": "Element",
-    "name": "i"
-  },
-  {
-    "variant": "Element",
-    "name": "iframe"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "img"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "input"
-  },
-  {
-    "variant": "Element",
-    "name": "ins"
-  },
-  {
-    "variant": "Element",
-    "name": "kbd"
-  },
-  {
-    "variant": "Element",
-    "name": "label"
-  },
-  {
-    "variant": "Element",
-    "name": "legend"
-  },
-  {
-    "variant": "Element",
-    "name": "li"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "link"
-  },
-  {
-    "variant": "Element",
-    "name": "main"
-  },
-  {
-    "variant": "Element",
-    "name": "map"
-  },
-  {
-    "variant": "Element",
-    "name": "mark"
-  },
-  {
-    "variant": "Element",
-    "name": "math"
-  },
-  {
-    "variant": "Element",
-    "name": "menu"
-  },
-  {
-    "variant": "Element",
-    "name": "menuitem"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "meta"
-  },
-  {
-    "variant": "Element",
-    "name": "meter"
-  },
-  {
-    "variant": "Element",
-    "name": "nav"
-  },
-  {
-    "variant": "Element",
-    "name": "noscript"
-  },
-  {
-    "variant": "Element",
-    "name": "object"
-  },
-  {
-    "variant": "Element",
-    "name": "ol"
-  },
-  {
-    "variant": "Element",
-    "name": "optgroup"
-  },
-  {
-    "variant": "Element",
-    "name": "option"
-  },
-  {
-    "variant": "Element",
-    "name": "output"
-  },
-  {
-    "variant": "Element",
-    "name": "p"
-  },
-  {
-    "variant": "Element",
-    "name": "param"
-  },
-  {
-    "variant": "Element",
-    "name": "picture"
-  },
-  {
-    "variant": "Element",
-    "name": "pre"
-  },
-  {
-    "variant": "Element",
-    "name": "progress"
-  },
-  {
-    "variant": "Element",
-    "name": "q"
-  },
-  {
-    "variant": "Element",
-    "name": "rp"
-  },
-  {
-    "variant": "Element",
-    "name": "rt"
-  },
-  {
-    "variant": "Element",
-    "name": "ruby"
-  },
-  {
-    "variant": "Element",
-    "name": "s"
-  },
-  {
-    "variant": "Element",
-    "name": "samp"
-  },
-  {
-    "variant": "Element",
-    "name": "section"
-  },
-  {
-    "variant": "Element",
-    "name": "select"
-  },
-  {
-    "variant": "Element",
-    "name": "small"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "source"
-  },
-  {
-    "variant": "Element",
-    "name": "span"
-  },
-  {
-    "variant": "Element",
-    "name": "strong"
-  },
-  {
-    "variant": "Element",
-    "name": "sub"
-  },
-  {
-    "variant": "Element",
-    "name": "summary"
-  },
-  {
-    "variant": "Element",
-    "name": "sup"
-  },
-  {
-    "variant": "Element",
-    "name": "svg"
-  },
-  {
-    "variant": "Element",
-    "name": "table"
-  },
-  {
-    "variant": "Element",
-    "name": "tbody"
-  },
-  {
-    "variant": "Element",
-    "name": "td"
-  },
-  {
-    "variant": "Element",
-    "name": "textarea"
-  },
-  {
-    "variant": "Element",
-    "name": "tfoot"
-  },
-  {
-    "variant": "Element",
-    "name": "th"
-  },
-  {
-    "variant": "Element",
-    "name": "thead"
-  },
-  {
-    "variant": "Element",
-    "name": "time"
-  },
-  {
-    "variant": "Element",
-    "name": "title"
-  },
-  {
-    "variant": "Element",
-    "name": "tr"
-  },
-  {
-    "variant": "LeafElement",
-    "name": "track"
-  },
-  {
-    "variant": "Element",
-    "name": "u"
-  },
-  {
-    "variant": "Element",
-    "name": "ul"
-  },
-  {
-    "variant": "Element",
-    "name": "var"
-  },
-  {
-    "variant": "Element",
-    "name": "video"
-  },
-  {
-    "variant": "Element",
-    "name": "wbr"
-  }
+	{
+		"leaf": false,
+		"name": "a"
+	},
+	{
+		"leaf": false,
+		"name": "abbr"
+	},
+	{
+		"leaf": false,
+		"name": "address"
+	},
+	{
+		"leaf": true,
+		"name": "area"
+	},
+	{
+		"leaf": false,
+		"name": "article"
+	},
+	{
+		"leaf": false,
+		"name": "aside"
+	},
+	{
+		"leaf": false,
+		"name": "audio"
+	},
+	{
+		"leaf": false,
+		"name": "b"
+	},
+	{
+		"leaf": true,
+		"name": "base"
+	},
+	{
+		"leaf": false,
+		"name": "bdi"
+	},
+	{
+		"leaf": false,
+		"name": "bdo"
+	},
+	{
+		"leaf": false,
+		"name": "blockquote"
+	},
+	{
+		"leaf": false,
+		"name": "body"
+	},
+	{
+		"leaf": true,
+		"name": "br"
+	},
+	{
+		"leaf": false,
+		"name": "button"
+	},
+	{
+		"leaf": false,
+		"name": "canvas"
+	},
+	{
+		"leaf": false,
+		"name": "caption"
+	},
+	{
+		"leaf": false,
+		"name": "cite"
+	},
+	{
+		"leaf": false,
+		"name": "code"
+	},
+	{
+		"leaf": false,
+		"name": "col"
+	},
+	{
+		"leaf": false,
+		"name": "colgroup"
+	},
+	{
+		"leaf": false,
+		"name": "data"
+	},
+	{
+		"leaf": false,
+		"name": "datalist"
+	},
+	{
+		"leaf": false,
+		"name": "dd"
+	},
+	{
+		"leaf": false,
+		"name": "del"
+	},
+	{
+		"leaf": false,
+		"name": "details"
+	},
+	{
+		"leaf": false,
+		"name": "dfn"
+	},
+	{
+		"leaf": false,
+		"name": "dialog"
+	},
+	{
+		"leaf": false,
+		"name": "div"
+	},
+	{
+		"leaf": false,
+		"name": "dl"
+	},
+	{
+		"leaf": false,
+		"name": "dt"
+	},
+	{
+		"leaf": false,
+		"name": "em"
+	},
+	{
+		"leaf": false,
+		"name": "embed"
+	},
+	{
+		"leaf": false,
+		"name": "fieldset"
+	},
+	{
+		"leaf": false,
+		"name": "figcaption"
+	},
+	{
+		"leaf": false,
+		"name": "figure"
+	},
+	{
+		"leaf": false,
+		"name": "footer"
+	},
+	{
+		"leaf": false,
+		"name": "form"
+	},
+	{
+		"leaf": false,
+		"name": "h1"
+	},
+	{
+		"leaf": false,
+		"name": "h2"
+	},
+	{
+		"leaf": false,
+		"name": "h3"
+	},
+	{
+		"leaf": false,
+		"name": "h4"
+	},
+	{
+		"leaf": false,
+		"name": "h5"
+	},
+	{
+		"leaf": false,
+		"name": "h6"
+	},
+	{
+		"leaf": false,
+		"name": "header"
+	},
+	{
+		"leaf": true,
+		"name": "hr"
+	},
+	{
+		"leaf": false,
+		"name": "i"
+	},
+	{
+		"leaf": false,
+		"name": "iframe"
+	},
+	{
+		"leaf": true,
+		"name": "img"
+	},
+	{
+		"leaf": true,
+		"name": "input"
+	},
+	{
+		"leaf": false,
+		"name": "ins"
+	},
+	{
+		"leaf": false,
+		"name": "kbd"
+	},
+	{
+		"leaf": false,
+		"name": "label"
+	},
+	{
+		"leaf": false,
+		"name": "legend"
+	},
+	{
+		"leaf": false,
+		"name": "li"
+	},
+	{
+		"leaf": true,
+		"name": "link"
+	},
+	{
+		"leaf": false,
+		"name": "main"
+	},
+	{
+		"leaf": false,
+		"name": "map"
+	},
+	{
+		"leaf": false,
+		"name": "mark"
+	},
+	{
+		"leaf": false,
+		"name": "math"
+	},
+	{
+		"leaf": false,
+		"name": "menu"
+	},
+	{
+		"leaf": false,
+		"name": "menuitem"
+	},
+	{
+		"leaf": true,
+		"name": "meta"
+	},
+	{
+		"leaf": false,
+		"name": "meter"
+	},
+	{
+		"leaf": false,
+		"name": "nav"
+	},
+	{
+		"leaf": false,
+		"name": "noscript"
+	},
+	{
+		"leaf": false,
+		"name": "object"
+	},
+	{
+		"leaf": false,
+		"name": "ol"
+	},
+	{
+		"leaf": false,
+		"name": "optgroup"
+	},
+	{
+		"leaf": false,
+		"name": "option"
+	},
+	{
+		"leaf": false,
+		"name": "output"
+	},
+	{
+		"leaf": false,
+		"name": "p"
+	},
+	{
+		"leaf": false,
+		"name": "param"
+	},
+	{
+		"leaf": false,
+		"name": "picture"
+	},
+	{
+		"leaf": false,
+		"name": "pre"
+	},
+	{
+		"leaf": false,
+		"name": "progress"
+	},
+	{
+		"leaf": false,
+		"name": "q"
+	},
+	{
+		"leaf": false,
+		"name": "rp"
+	},
+	{
+		"leaf": false,
+		"name": "rt"
+	},
+	{
+		"leaf": false,
+		"name": "ruby"
+	},
+	{
+		"leaf": false,
+		"name": "s"
+	},
+	{
+		"leaf": false,
+		"name": "samp"
+	},
+	{
+		"leaf": false,
+		"name": "section"
+	},
+	{
+		"leaf": false,
+		"name": "select"
+	},
+	{
+		"leaf": false,
+		"name": "small"
+	},
+	{
+		"leaf": true,
+		"name": "source"
+	},
+	{
+		"leaf": false,
+		"name": "span"
+	},
+	{
+		"leaf": false,
+		"name": "strong"
+	},
+	{
+		"leaf": false,
+		"name": "sub"
+	},
+	{
+		"leaf": false,
+		"name": "summary"
+	},
+	{
+		"leaf": false,
+		"name": "sup"
+	},
+	{
+		"leaf": false,
+		"name": "svg"
+	},
+	{
+		"leaf": false,
+		"name": "table"
+	},
+	{
+		"leaf": false,
+		"name": "tbody"
+	},
+	{
+		"leaf": false,
+		"name": "td"
+	},
+	{
+		"leaf": false,
+		"name": "textarea"
+	},
+	{
+		"leaf": false,
+		"name": "tfoot"
+	},
+	{
+		"leaf": false,
+		"name": "th"
+	},
+	{
+		"leaf": false,
+		"name": "thead"
+	},
+	{
+		"leaf": false,
+		"name": "time"
+	},
+	{
+		"leaf": false,
+		"name": "tr"
+	},
+	{
+		"leaf": true,
+		"name": "track"
+	},
+	{
+		"leaf": false,
+		"name": "u"
+	},
+	{
+		"leaf": false,
+		"name": "ul"
+	},
+	{
+		"leaf": false,
+		"name": "var"
+	},
+	{
+		"leaf": false,
+		"name": "video"
+	},
+	{
+		"leaf": false,
+		"name": "wbr"
+	}
 ]

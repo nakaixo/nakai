@@ -16,13 +16,13 @@ pub fn attr_test() {
 }
 
 pub fn head_test() {
-  html.Head([html.title_text([], "Hi!")])
+  html.Head([html.title("Hi!")])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/head.html")
 }
 
 pub fn head_nested_test() {
-  html.div([], [html.Head([html.title_text([], "Hi!")])])
+  html.div([], [html.Head([html.title("Hi!")])])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/head_nested.html")
 }

@@ -8,6 +8,8 @@ links = [
   { title = "Sponsor", href = "https://github.com/sponsors/aslilac" },
 ]
 
+internal_modules = ["nakai/codegen", "nakai/internal/*", "nakai/experimental/*"]
+
 [dependencies]
 gleam_stdlib = "~> 0.28"
 
@@ -15,6 +17,3 @@ gleam_stdlib = "~> 0.28"
 gleam_erlang = "~> 0.18"
 gleeunit = "~> 0.10"
 rad = "~> 0.2"
-
-[documentation]
-hidden_modules = ["nakai/codegen", "nakai/internal/*", "nakai/experimental/*"]

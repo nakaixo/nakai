@@ -25,7 +25,7 @@ pub fn puppies_test() {
   html.Html(
     [attrs.lang("en-US")],
     [
-      html.Head([html.title_text([], "List of puppies!")]),
+      html.Head([html.title("List of puppies!")]),
       html.div([], [puppies_list()]),
     ],
   )

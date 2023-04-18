@@ -1,188 +1,144 @@
 [
   {
-    "variant": "Attr",
     "name": "accept"
   },
   {
-    "variant": "Attr",
     "name": "accept-charset"
   },
   {
-    "variant": "Attr",
     "name": "action"
   },
   {
-    "variant": "Attr",
     "name": "alt"
   },
   {
-    "variant": "ConstAttr",
     "name": "async",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "autocapitalize"
   },
   {
-    "variant": "Attr",
     "name": "autocomplete"
   },
   {
-    "variant": "ConstAttr",
     "name": "autofocus",
     "value": "true"
   },
   {
-    "variant": "ConstAttr",
     "name": "autoplay",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "capture"
   },
   {
-    "variant": "Attr",
     "name": "charset"
   },
   {
-    "variant": "ConstAttr",
     "name": "checked",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "cite"
   },
   {
-    "variant": "Attr",
     "name": "class"
   },
   {
-    "variant": "Attr",
     "name": "content"
   },
   {
-    "variant": "ConstAttr",
     "name": "contenteditable",
     "value": "true"
   },
   {
-    "variant": "ConstAttr",
     "name": "crossorigin",
     "value": "true"
   },
   {
-    "variant": "ConstAttr",
     "name": "defer",
     "value": "true"
   },
   {
-    "variant": "ConstAttr",
     "name": "disabled",
     "value": "true"
   },
   {
-    "variant": "ConstAttr",
     "name": "draggable",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "for"
   },
   {
-    "variant": "Attr",
     "name": "formaction"
   },
   {
-    "variant": "Attr",
     "name": "height"
   },
   {
-    "variant": "Attr",
     "name": "href"
   },
   {
-    "variant": "Attr",
     "name": "http-equiv"
   },
   {
-    "variant": "Attr",
     "name": "id"
   },
   {
-    "variant": "Attr",
     "name": "integrity"
   },
   {
-    "variant": "Attr",
     "name": "lang"
   },
   {
-    "variant": "ConstAttr",
     "name": "loop",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "name"
   },
   {
-    "variant": "ConstAttr",
     "name": "preload",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "property"
   },
   {
-    "variant": "ConstAttr",
     "name": "readonly",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "rel"
   },
   {
-    "variant": "ConstAttr",
     "name": "selected",
     "value": "true"
   },
   {
-    "variant": "Attr",
     "name": "src"
   },
   {
-    "variant": "Attr",
     "name": "style"
   },
   {
-    "variant": "Attr",
     "name": "tabindex"
   },
   {
-    "variant": "Attr",
     "name": "target"
   },
   {
-    "variant": "Attr",
     "name": "title"
   },
   {
-    "variant": "Attr",
-    "name": "type",
-    "fn": "type_"
+    "name": "type"
   },
   {
-    "variant": "Attr",
     "name": "value"
   },
   {
-    "variant": "Attr",
     "name": "width"
   }
 ]

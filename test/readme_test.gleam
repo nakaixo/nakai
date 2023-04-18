@@ -24,10 +24,7 @@ pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
 pub fn app() -> String {
   html.div(
     [],
-    [
-      html.Head([html.title_text([], "Hello!")]),
-      header([], "Hello, from Nakai!"),
-    ],
+    [html.Head([html.title("Hello!")]), header([], "Hello, from Nakai!")],
   )
   |> nakai.to_string()
 }

@@ -10,7 +10,3 @@ target/
 *.log
 *.pyc
 *.tsbuildinfo
-
-# Generated files
-src/nakai/html/attrs.gleam
-src/nakai/html.gleam
