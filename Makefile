@@ -1,13 +1,21 @@
 SHELL := /bin/bash
-DENO ?= $(shell which deno)
 GLEAM ?= $(shell which gleam)
 
-.PHONY: codegen gleam_build
 
-all: codegen gleam_build
+all: build
+.PHONY: all
 
-codegen:
-	@$(DENO) run --allow-read --allow-write ./codegen/gen.ts
-
-gleam_build: codegen
+build: codegen
 	@$(GLEAM) build
+.PHONY: build
+
+codegen: \
+	./src/nakai/html.gleam \
+	./src/nakai/html/attrs.gleam
+.PHONY: codegen
+
+./src/nakai/html.gleam: ./src/nakai/codegen/html.gleam
+	@$(GLEAM) run -m nakai/codegen/html
+
+./src/nakai/html/attrs.gleam: ./src/nakai/codegen/attrs.gleam
+	@$(GLEAM) run -m nakai/codegen/attrs

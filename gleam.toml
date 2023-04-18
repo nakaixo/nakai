@@ -2,14 +2,15 @@ name = "nakai"
 version = "0.4.2"
 licences = ["MIT"]
 description = "A server-side rendering framework for building web apps with Gleam ✨"
-repository = { type = "github", user = "nakaibuild", repo = "nakai" }
+repository = { type = "github", user = "nakaixo", repo = "nakai" }
 
 [dependencies]
-gleam_stdlib = "~> 0.27"
+gleam_stdlib = "~> 0.28"
 
 [dev-dependencies]
 gleam_erlang = "~> 0.18"
+gleam_json = "~> 0.5"
 gleeunit = "~> 0.10"
 
 [documentation]
-hidden_modules = ["nakai/render", "nakai/render/*"]
+hidden_modules = ["nakai/codegen/*", "nakai/render", "nakai/render/*"]
