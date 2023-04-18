@@ -1,14 +1,6 @@
-![Nakai](https://cdn.mckayla.cloud/-/2d8051c1ce2f4fbd91eaf07df5661e25/Nakai-Banner.svg)
+import snapshot
+// BEGIN README SNIPPET
 
-[![Documentation](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/nakai/)
-
-## Getting started
-
-```sh
-gleam add nakai
-```
-
-```gleam
 import gleam/list
 import nakai
 import nakai/html.{Node}
@@ -30,10 +22,19 @@ pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
 }
 
 pub fn app() -> String {
-  html.div([], [
-    html.Head([html.title_text([], "Hello!")]),
-    header([], "Hello, from Nakai!"),
-  ])
+  html.div(
+    [],
+    [
+      html.Head([html.title_text([], "Hello!")]),
+      header([], "Hello, from Nakai!"),
+    ],
+  )
   |> nakai.to_string()
 }
-```
+
+// END README SNIPPET
+
+pub fn readme_test() {
+  app()
+  |> snapshot.match_string("./test/testdata/readme.html")
+}

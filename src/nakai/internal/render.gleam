@@ -112,5 +112,5 @@ pub fn render_root(tree: Node(a)) -> StringBuilder {
   ])
   // Would it be nice to include version info, or would that just open people up to
   // targeted injection stuff if there's ever a wildly exploitable bug?
-  // string_builder.from_string("</body>\n</html>\n<!-- Nakai v0.5.0 -->\n"),
+  // string_builder.from_string("</body>\n</html>\n<!-- Nakai vx.x.x -->\n"),
 }

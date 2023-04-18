@@ -6,6 +6,9 @@ GLEAM ?= $(shell which gleam)
 
 all: codegen gleam_build
 
+test: codegen
+	@$(GLEAM) test
+
 codegen: | src/nakai/html/
 	@$(DENO) run --allow-read --allow-write ./codegen/gen.ts
 
