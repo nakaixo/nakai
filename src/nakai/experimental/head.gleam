@@ -1,11 +1,6 @@
 import nakai/html
 import nakai/html/attrs
 
-// deprecate/remove?
-pub fn stylesheet(href url: String) {
-  html.Head([html.link([attrs.rel("stylesheet"), attrs.href(url)])])
-}
-
 pub fn title(title: String) {
   html.Head([html.title([], [html.Text(title)])])
 }

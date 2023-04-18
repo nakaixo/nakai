@@ -17,4 +17,4 @@ gleeunit = "~> 0.10"
 rad = "~> 0.2"
 
 [documentation]
-hidden_modules = ["nakai/internal/*"]
+hidden_modules = ["nakai/codegen", "nakai/internal/*", "nakai/experimental/*"]
