@@ -1,3 +1,5 @@
+// Not actually a test, but having it in test/ prevents this file from being published :^)
+
 import gleam/dynamic.{Dynamic}
 import gleam/erlang/file
 import gleam/json
@@ -62,19 +64,10 @@ pub fn " <> name <> "(attrs: List(Attr(a))) -> Node(a) {
 }
 
 fn generate_nakai_html() {
-  use html_json <- result.then(
-    file.read("./codegen/html.json")
-    |> result.nil_error(),
-  )
-  use html <- result.then(
+  let assert Ok(html_prelude) = file.read("./codegen/html_prelude.gleam")
+  let assert Ok(html_json) = file.read("./codegen/html.json")
+  let assert Ok(html) =
     json.decode(from: html_json, using: dynamic.list(element_decoder))
-    |> result.nil_error(),
-  )
-
-  use html_prelude <- result.then(
-    file.read("./codegen/html_prelude.gleam")
-    |> result.nil_error(),
-  )
 
   // Generate code from the defined attributes
   let code =
@@ -82,16 +75,9 @@ fn generate_nakai_html() {
     |> list.map(codegen_element)
     |> string.concat()
 
-  use _ <- // Produce nakai/html
-  result.then(
-    file.write(
-      string.concat([html_prefix, html_prelude, code]),
-      "./src/nakai/html.gleam",
-    )
-    |> result.nil_error(),
-  )
-
-  Ok(Nil)
+  // Produce nakai/html
+  string.concat([html_prefix, html_prelude, code])
+  |> file.write("./src/nakai/html.gleam")
 }
 
 const attrs_prefix = "
@@ -155,19 +141,10 @@ pub fn " <> name <> "() -> Attr(a) {
 }
 
 fn generate_nakai_html_attrs() {
-  use attrs_json <- result.then(
-    file.read("./codegen/attrs.json")
-    |> result.nil_error(),
-  )
-  use attrs <- result.then(
+  let assert Ok(attrs_prelude) = file.read("./codegen/attrs_prelude.gleam")
+  let assert Ok(attrs_json) = file.read("./codegen/attrs.json")
+  let assert Ok(attrs) =
     json.decode(from: attrs_json, using: dynamic.list(attr_decoder))
-    |> result.nil_error(),
-  )
-
-  use attrs_prelude <- result.then(
-    file.read("./codegen/attrs_prelude.gleam")
-    |> result.nil_error(),
-  )
 
   // Generate code from the defined attributes
   let code =
@@ -175,19 +152,12 @@ fn generate_nakai_html_attrs() {
     |> list.map(codegen_attr)
     |> string.concat()
 
-  use _ <- result.then(
-    file.write(
-      string.concat([attrs_prefix, attrs_prelude, code]),
-      "./src/nakai/html/attrs.gleam",
-    )
-    |> result.nil_error(),
-  )
-
-  Ok(Nil)
+  // Produce nakai/html/attrs
+  string.concat([attrs_prefix, attrs_prelude, code])
+  |> file.write("./src/nakai/html/attrs.gleam")
 }
 
 pub fn main() {
-  use _ <- result.then(generate_nakai_html())
-  use _ <- result.then(generate_nakai_html_attrs())
-  Ok(Nil)
+  let assert Ok(_) = generate_nakai_html()
+  let assert Ok(_) = generate_nakai_html_attrs()
 }
