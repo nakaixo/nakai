@@ -4,7 +4,7 @@ import gleam/string_builder.{StringBuilder}
 import gleam/string
 import nakai/html.{Node}
 import nakai/html/attrs.{Attr, Event}
-import nakai/internal/render_state.{State} as state
+import nakai/internal/document.{Document}
 
 const document_encoding = "
 <meta charset=\"utf-8\" />
@@ -15,10 +15,10 @@ pub fn render_doctype(doctype: String) -> StringBuilder {
   string_builder.from_strings(["<!DOCTYPE ", doctype, ">\n"])
 }
 
-pub fn render_children(children: List(Node(a))) -> State {
+pub fn render_children(children: List(Node(a))) -> Document {
   children
   |> list.map(render_node)
-  |> list.fold(state.new(), state.append)
+  |> list.fold(document.new(), document.merge)
 }
 
 pub fn render_attrs(attrs: List(Attr(a))) -> StringBuilder {
@@ -39,35 +39,35 @@ pub fn render_attr(attr: Attr(a)) -> StringBuilder {
   }
 }
 
-pub fn render_node(tree: Node(a)) -> State {
+pub fn render_node(tree: Node(a)) -> Document {
   case tree {
-    html.Doctype(doctype) -> state.from_doctype(doctype)
+    html.Doctype(doctype) -> document.from_doctype(doctype)
 
     html.Html(attrs, children) -> {
       render_children(children)
-      |> state.append_html_attrs(render_attrs(attrs))
+      |> document.append_html_attrs(render_attrs(attrs))
     }
 
     html.Head(children) ->
       render_children(children)
-      |> state.into_head()
+      |> document.into_head()
 
     html.Fragment(children) -> render_children(children)
 
     html.Comment(content) ->
       string_builder.from_strings(["<!-- ", content, " -->"])
-      |> state.from_body()
+      |> document.from_body()
 
     html.Element(tag, attrs, children) -> {
-      let children_state = render_children(children)
+      let child_document = render_children(children)
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
         render_attrs(attrs),
         string_builder.from_string(">"),
-        children_state.body,
+        child_document.body,
         string_builder.from_strings(["</", tag, ">"]),
       ])
-      |> state.replace_body(children_state, _)
+      |> document.replace_body(child_document, _)
     }
 
     html.LeafElement(tag, attrs) -> {
@@ -76,7 +76,7 @@ pub fn render_node(tree: Node(a)) -> State {
         render_attrs(attrs),
         string_builder.from_string(" />"),
       ])
-      |> state.from_body()
+      |> document.from_body()
     }
 
     html.Text(content) ->
@@ -84,13 +84,13 @@ pub fn render_node(tree: Node(a)) -> State {
       |> string_builder.replace("&", "&amp;")
       |> string_builder.replace("<", "&lt;")
       |> string_builder.replace(">", "&gt;")
-      |> state.from_body()
+      |> document.from_body()
 
     html.UnsafeText(content) ->
       string_builder.from_string(content)
-      |> state.from_body()
+      |> document.from_body()
 
-    html.Nothing -> state.new()
+    html.Nothing -> document.new()
   }
 }
 

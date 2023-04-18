@@ -4,8 +4,8 @@ import gleam/list
 import gleam/string
 import gleam/string_builder.{StringBuilder}
 
-pub type State {
-  State(
+pub type Document {
+  Document(
     doctype: Option(String),
     html_attrs: StringBuilder,
     head: StringBuilder,
@@ -15,7 +15,7 @@ pub type State {
 }
 
 pub fn new() {
-  State(
+  Document(
     doctype: option.None,
     html_attrs: string_builder.new(),
     head: string_builder.new(),
@@ -24,8 +24,8 @@ pub fn new() {
   )
 }
 
-pub fn append(self: State, new: State) -> State {
-  State(
+pub fn merge(self: Document, new: Document) -> Document {
+  Document(
     // Overwrite the doctype with a newer one, unless the newer one is `None`
     doctype: option.or(new.doctype, self.doctype),
     html_attrs: string_builder.append_builder(self.html_attrs, new.html_attrs),
@@ -35,46 +35,46 @@ pub fn append(self: State, new: State) -> State {
   )
 }
 
-pub fn from_doctype(doctype: String) -> State {
-  State(..new(), doctype: option.Some(doctype))
+pub fn from_doctype(doctype: String) -> Document {
+  Document(..new(), doctype: option.Some(doctype))
 }
 
-pub fn append_html_attrs(self: State, html_attrs: StringBuilder) -> State {
-  State(
+pub fn append_html_attrs(self: Document, html_attrs: StringBuilder) -> Document {
+  Document(
     ..self,
     html_attrs: string_builder.append_builder(self.html_attrs, html_attrs),
   )
 }
 
-pub fn from_head(head: StringBuilder) -> State {
-  State(..new(), head: head)
+pub fn from_head(head: StringBuilder) -> Document {
+  Document(..new(), head: head)
 }
 
-pub fn append_head(self: State, head: StringBuilder) -> State {
-  State(..self, head: string_builder.append_builder(self.head, head))
+pub fn append_head(self: Document, head: StringBuilder) -> Document {
+  Document(..self, head: string_builder.append_builder(self.head, head))
 }
 
-pub fn from_body(body: StringBuilder) -> State {
-  State(..new(), body: body)
+pub fn from_body(body: StringBuilder) -> Document {
+  Document(..new(), body: body)
 }
 
-pub fn append_body(self: State, body: StringBuilder) -> State {
-  State(..self, body: string_builder.append_builder(self.body, body))
+pub fn append_body(self: Document, body: StringBuilder) -> Document {
+  Document(..self, body: string_builder.append_builder(self.body, body))
 }
 
-pub fn replace_body(self: State, body: StringBuilder) -> State {
-  State(..self, body: body)
+pub fn replace_body(self: Document, body: StringBuilder) -> Document {
+  Document(..self, body: body)
 }
 
-pub fn into_head(state: State) -> State {
-  State(
+pub fn into_head(state: Document) -> Document {
+  Document(
     ..state,
     head: string_builder.append_builder(state.head, state.body),
     body: string_builder.new(),
   )
 }
 
-pub fn debug(state: State) -> State {
+pub fn debug(state: Document) -> Document {
   let doctype_line =
     state.doctype
     |> option.map(fn(doctype) { "doctype: " <> doctype <> "\n" })
