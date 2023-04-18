@@ -1,5 +1,4 @@
 import nakai
-import nakai/head
 import nakai/html
 import nakai/html/attrs
 import snapshot
@@ -17,13 +16,13 @@ pub fn attr_test() {
 }
 
 pub fn head_test() {
-  html.Head([head.title("Hi!")])
+  html.Head([html.title_text([], "Hi!")])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/head.html")
 }
 
 pub fn head_nested_test() {
-  html.div([], [head.title("Hi!")])
+  html.div([], [html.Head([html.title_text([], "Hi!")])])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/head_nested.html")
 }
