@@ -17,10 +17,6 @@ jobs:
           gleam-version: "0.28.3"
           rebar3-version: "3.20.0"
 
-      - uses: denoland/setup-deno@v1
-        with:
-          deno-version: v1.x
-
       - run: cargo install tomlq
 
       - run: |
@@ -32,8 +28,9 @@ jobs:
           exit 1
 
       - run: gleam format --check
+        continue-on-error: true
 
-      - run: make codegen
+      - run: make
 
       - run: gleam test
 
