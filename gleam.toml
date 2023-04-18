@@ -1,15 +1,20 @@
 name = "nakai"
-version = "0.4.2"
+version = "0.5.0"
 licences = ["MIT"]
-description = "A server-side rendering framework for building web apps with Gleam ✨"
-repository = { type = "github", user = "nakaibuild", repo = "nakai" }
+description = "HTML generation for Gleam, on the server or anywhere else"
+repository = { type = "github", user = "nakaixo", repo = "nakai" }
+links = [
+  { title = "Website", href = "https://nakaixo.github.io" },
+  { title = "Sponsor", href = "https://github.com/sponsors/aslilac" },
+]
 
 [dependencies]
-gleam_stdlib = "~> 0.27"
+gleam_stdlib = "~> 0.28"
 
 [dev-dependencies]
 gleam_erlang = "~> 0.18"
 gleeunit = "~> 0.10"
+rad = "~> 0.2"
 
 [documentation]
-hidden_modules = ["nakai/render", "nakai/render/*"]
+hidden_modules = ["nakai/internal/*"]
