@@ -40,9 +40,50 @@ pub type Node(a) {
   /// // <!-- You've uncovered my secrets! -->
   /// ```
   Comment(content: String)
+  /// An HTML element. You shouldn't need to reach for this very often, but it can be a
+  /// handy escape hatch if there isn't a shorthand function for the element type you need.
+  /// ## Example
+  /// ```gleam
+  /// // bad example, pls use `html.div`
+  /// html.Element("div", [], [html.Text("hello, lucy!")])
+  /// ```
   Element(tag: String, attrs: List(Attr(a)), children: List(Node(a)))
+  /// An HTML element, but that does not have any children, and should be self closing.
+  /// Similarly to `Element`, you shouldn't really need this, except as an escape hatch
+  /// if there isn't a shorthand function for the element type you need.
+  /// ## Example
+  /// ```gleam
+  /// // bad example, pls use `html.link`
+  /// html.LeafElement("link", [html.Attr("rel", "stylesheet"), html.Attr("href", ...)])
+  /// ```
   LeafElement(tag: String, attrs: List(Attr(a)))
+  /// Some plain text to include in the document. The provided text will be escaped, to
+  /// make it safe to include in the document.
+  /// ## Example
+  /// ```gleam
+  /// html.Text("hello, lucy!")
+  /// // hello, lucy!
+  /// ```
+  /// ```gleam
+  /// // Time to trust some unvalidated user input! :^)
+  /// html.div_text([], "<script>alert('pwned');</script>")
+  /// // <div>&lt;script&gt;alert('pwned');&lt;/script&gt;</div>
+  /// ```
   Text(content: String)
+  /// The dangerous cousin of `Text`. This will render the provided text as-is, without
+  /// any santization. Good for things like including some HTML you just generated from
+  /// a Markdown file. Bad for things like `$_GET['search']`.
+  /// ## Example
+  /// ```gleam
+  /// html.Text("hello, lucy!")
+  /// // hello, lucy!
+  /// ```
+  /// ```gleam
+  /// // Time to trust some unvalidated user input! :^)
+  /// html.div([], [html.UnsafeText("<script>alert('pwned');</script>")])
+  /// // <div><script>alert('pwned');</script></div>
+  /// // Oh no, we just got got! D:
+  /// ```
   UnsafeText(content: String)
   /// An "transparent" container that will render it's children, but does not add anything
   /// itself to the document. If you've ever used `React.Fragment` or `<>` and `</>` in

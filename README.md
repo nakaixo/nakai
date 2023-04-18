@@ -9,7 +9,6 @@ gleam add nakai
 ```
 
 ```gleam
-import gleam/list
 import nakai
 import nakai/html.{Node}
 import nakai/html/attrs.{Attr}
@@ -22,18 +21,19 @@ const header_style = "
 "
 
 pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
-  let attrs =
-    [attrs.style(header_style)]
-    |> list.append(attrs)
-
+  let attrs = [attrs.style(header_style), ..attrs]
   html.h1_text(attrs, text)
 }
 
 pub fn app() -> String {
-  html.div([], [
-    html.Head([html.title("Hello!")]),
-    header([], "Hello, from Nakai!"),
-  ])
+  html.div(
+    [],
+    [
+      html.Head([html.title("Hello!")]),
+      header([], "Hello, from Nakai!")
+    ],
+  )
   |> nakai.to_string()
 }
+
 ```

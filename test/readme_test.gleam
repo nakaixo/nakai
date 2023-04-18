@@ -1,7 +1,6 @@
 import snapshot
 // BEGIN README SNIPPET
 
-import gleam/list
 import nakai
 import nakai/html.{Node}
 import nakai/html/attrs.{Attr}
@@ -14,10 +13,7 @@ const header_style = "
 "
 
 pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
-  let attrs =
-    [attrs.style(header_style)]
-    |> list.append(attrs)
-
+  let attrs = [attrs.style(header_style), ..attrs]
   html.h1_text(attrs, text)
 }
 
