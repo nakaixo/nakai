@@ -17,6 +17,10 @@ docs: build
 	@$(GLEAM) docs build
 .PHONY: docs
 
+format:
+	@$(GLEAM) format
+	@$(GLEAM) run -m nakai/codegen
+
 test: build
 	@$(GLEAM) test
 .PHONY: test
