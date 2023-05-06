@@ -1,0 +1,25 @@
+runs:
+  using: composite
+
+  steps:
+    - uses: erlef/setup-beam@v1
+      with:
+        otp-version: "25.2"
+        gleam-version: "0.28.3"
+        rebar3-version: "3.20.0"
+
+    - run: |
+        gleam format
+        gleam run -m nakai/codegen
+        git diff --exit-code
+      name: Check formatting
+      shell: bash
+
+    - run: |
+        make
+        git diff --exit-code
+      name: Check generated code
+      shell: bash
+
+    - run: gleam test
+      shell: bash
