@@ -23,11 +23,15 @@ jobs:
           gleam-version: "0.28.3"
           rebar3-version: "3.20.0"
 
-      - run: gleam format --check
-        continue-on-error: true
+      - run: |
+          gleam format --check
+          gleam run -m nakai/codegen
+          git diff --exit-code
+        name: Check formatting
 
       - run: |
           make
           git diff --exit-code
+        name: Check generated code
 
       - run: gleam test

@@ -27,10 +27,16 @@ jobs:
           echo "tag does not match version in gleam.toml, refusing to publish"
           exit 1
 
-      - run: gleam format --check
-        continue-on-error: true
+      - run: |
+          gleam format
+          gleam run -m nakai/codegen
+          git diff --exit-code
+        name: Check formatting
 
-      - run: make
+      - run: |
+          make
+          git diff --exit-code
+        name: Check generated code
 
       - run: gleam test
 
