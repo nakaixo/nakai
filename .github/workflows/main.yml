@@ -24,7 +24,7 @@ jobs:
           rebar3-version: "3.20.0"
 
       - run: |
-          gleam format --check
+          gleam format
           gleam run -m nakai/codegen
           git diff --exit-code
         name: Check formatting
