@@ -1,4 +1,4 @@
-// Not actually a test, but having it in test/ prevents this file from being published :^)
+// Not actually a test, but having this file in test/ prevents it from being published :^)
 
 import gleam/dynamic.{Dynamic}
 import gleam/erlang/file
@@ -117,7 +117,8 @@ fn attr_decoder(value: Dynamic) -> Result(AttrDescription, dynamic.DecodeErrors)
 }
 
 fn codegen_attr(attr: AttrDescription) -> String {
-  let name = case attr.name {
+  let name = attr.name
+  let func_name = case name {
     "type" -> "type_"
     name ->
       name
@@ -127,13 +128,13 @@ fn codegen_attr(attr: AttrDescription) -> String {
   case attr {
     Attr(_) ->
       "
-pub fn " <> name <> "(value: String) -> Attr(a) {
+pub fn " <> func_name <> "(value: String) -> Attr(a) {
   Attr(name: \"" <> name <> "\", value: value)
 }
 "
     ConstAttr(_, value) ->
       "
-pub fn " <> name <> "() -> Attr(a) {
+pub fn " <> func_name <> "() -> Attr(a) {
   Attr(name: \"" <> name <> "\", value: \"" <> value <> "\")
 }
 "

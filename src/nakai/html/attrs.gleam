@@ -27,7 +27,7 @@ pub fn accept(value: String) -> Attr(a) {
 }
 
 pub fn accept_charset(value: String) -> Attr(a) {
-  Attr(name: "accept_charset", value: value)
+  Attr(name: "accept-charset", value: value)
 }
 
 pub fn action(value: String) -> Attr(a) {
@@ -119,7 +119,7 @@ pub fn href(value: String) -> Attr(a) {
 }
 
 pub fn http_equiv(value: String) -> Attr(a) {
-  Attr(name: "http_equiv", value: value)
+  Attr(name: "http-equiv", value: value)
 }
 
 pub fn id(value: String) -> Attr(a) {
@@ -183,7 +183,7 @@ pub fn title(value: String) -> Attr(a) {
 }
 
 pub fn type_(value: String) -> Attr(a) {
-  Attr(name: "type_", value: value)
+  Attr(name: "type", value: value)
 }
 
 pub fn value(value: String) -> Attr(a) {

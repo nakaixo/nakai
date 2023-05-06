@@ -44,3 +44,20 @@ pub fn sanitization_test() {
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/sanitization.html")
 }
+
+pub fn attributes_that_are_gleam_keywords_test() {
+  html.input([attrs.type_("text")])
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/attributes_that_are_gleam_keywords.html")
+}
+
+pub fn attributes_with_hyphens_test() {
+  html.Head([
+    html.meta([
+      attrs.http_equiv("content-security-policy"),
+      attrs.content("default-src 'self';"),
+    ]),
+  ])
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/attributes_with_hyphens.html")
+}
