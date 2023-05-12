@@ -138,8 +138,16 @@ pub fn loop() -> Attr(a) {
   Attr(name: "loop", value: "true")
 }
 
+pub fn method(value: String) -> Attr(a) {
+  Attr(name: "method", value: value)
+}
+
 pub fn name(value: String) -> Attr(a) {
   Attr(name: "name", value: value)
+}
+
+pub fn placeholder(value: String) -> Attr(a) {
+  Attr(name: "placeholder", value: value)
 }
 
 pub fn preload() -> Attr(a) {

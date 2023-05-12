@@ -97,7 +97,13 @@
     "value": "true"
   },
   {
+    "name": "method"
+  },
+  {
     "name": "name"
+  },
+  {
+    "name": "placeholder"
   },
   {
     "name": "preload",
