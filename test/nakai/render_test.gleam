@@ -21,8 +21,14 @@ pub fn head_test() {
   |> snapshot.match("./test/testdata/head.html")
 }
 
-pub fn head_nested_test() {
+pub fn deep_head_test() {
   html.div([], [html.Head([html.title("Hi!")])])
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/deep_head.html")
+}
+
+pub fn head_nested_test() {
+  html.Head([html.Head([html.Head([html.title("Hi!")])])])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/head_nested.html")
 }
