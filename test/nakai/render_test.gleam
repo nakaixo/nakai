@@ -3,6 +3,12 @@ import nakai/html
 import nakai/html/attrs
 import snapshot
 
+pub fn empty_test() {
+  html.Nothing
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/empty.html")
+}
+
 pub fn hi_friend_test() {
   html.div([attrs.id("hi")], [html.Text("Hi friend!")])
   |> nakai.to_string_builder()
