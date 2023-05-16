@@ -48,10 +48,6 @@
 		"name": "blockquote"
 	},
 	{
-		"leaf": false,
-		"name": "body"
-	},
-	{
 		"leaf": true,
 		"name": "br"
 	},

@@ -20,16 +20,14 @@ pub type Node(a) {
   /// being rendered. Usually not necessary, as documents have a default of `<!DOCTYPE html>`.
   /// ## Example
   /// ```gleam
-  /// html.Html([], [
-  ///   html.Doctype("html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"")
-  /// ])
+  /// html.Doctype("html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"")
   /// ```
   Doctype(content: String)
   /// Used for setting attributes on the root `<html>` element of the document. Children
-  /// will be render in-place, equivalent to using `html.Fragment(children)`.
+  /// will be rendered in-place, equivalent to using `html.Fragment(children)`.
   /// ## Example
   /// ```gleam
-  /// html.Html([html.Attr("lang", "en-US")], [
+  /// html.Html([attrs.lang("en-US")], [
   ///   ...
   /// ])
   /// ```
@@ -40,7 +38,7 @@ pub type Node(a) {
   /// ```gleam
   /// html.Fragment([
   ///   html.Head([
-  ///     html.title("List of puppies"
+  ///     html.title("List of puppies")
   ///   ]),
   ///   html.div([], [
   ///     ...
@@ -48,6 +46,15 @@ pub type Node(a) {
   /// ])
   /// ```
   Head(children: List(Node(a)))
+  /// Used for setting attributes on the `<body>` element of the document. Children
+  /// will be rendered in-place, equivalent to using `html.Fragment(children)`.
+  /// ## Example
+  /// ```gleam
+  /// html.Body([attrs.class("dark-mode")], [
+  ///   ...
+  /// ])
+  /// ```
+  Body(attrs: List(Attr(a)), children: List(Node(a)))
   /// An HTML comment, which will be included in the document.
   /// ## Example
   /// ```gleam
@@ -69,7 +76,7 @@ pub type Node(a) {
   /// ## Example
   /// ```gleam
   /// // bad example, pls use `html.link`
-  /// html.LeafElement("link", [html.Attr("rel", "stylesheet"), html.Attr("href", ...)])
+  /// html.LeafElement("link", [attrs.rel("stylesheet"), attrs.href(...)])
   /// ```
   LeafElement(tag: String, attrs: List(Attr(a)))
   /// Some plain text to include in the document. The provided text will be escaped, to
@@ -246,16 +253,6 @@ pub fn blockquote(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
 /// Shorthand for `html.blockquote(attrs, children: [html.Text(text)])`
 pub fn blockquote_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "blockquote", attrs: attrs, children: [Text(text)])
-}
-
-/// The HTML [`<body>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body) element
-pub fn body(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
-  Element(tag: "body", attrs: attrs, children: children)
-}
-
-/// Shorthand for `html.body(attrs, children: [html.Text(text)])`
-pub fn body_text(attrs: List(Attr(a)), text: String) -> Node(a) {
-  Element(tag: "body", attrs: attrs, children: [Text(text)])
 }
 
 /// The HTML [`<br />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br) element

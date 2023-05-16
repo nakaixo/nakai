@@ -33,8 +33,16 @@ pub fn html_attrs_test() {
   |> snapshot.match("./test/testdata/html_attrs.html")
 }
 
+pub fn body_attrs_test() {
+  html.Body([attrs.class("dark-mode")], [html.p_text([], "Hello!")])
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/body_attrs.html")
+}
+
+const xhtml11 = "html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\""
+
 pub fn doctype_test() {
-  html.Fragment([html.Doctype("custom"), html.div_text([], "Hi friend!")])
+  html.Fragment([html.Doctype(xhtml11), html.div_text([], "Hi friend!")])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/doctype.html")
 }

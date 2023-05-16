@@ -52,6 +52,11 @@ pub fn render_node(tree: Node(a)) -> Document {
       render_children(children)
       |> document.into_head()
 
+    html.Body(attrs, children) -> {
+      render_children(children)
+      |> document.append_body_attrs(render_attrs(attrs))
+    }
+
     html.Fragment(children) -> render_children(children)
 
     html.Comment(content) ->
@@ -105,7 +110,9 @@ pub fn render_root(tree: Node(a)) -> StringBuilder {
     result.html_attrs,
     string_builder.from_string(">\n<head>" <> document_encoding),
     result.head,
-    string_builder.from_string("</head>\n<body>"),
+    string_builder.from_string("</head>\n<body"),
+    result.body_attrs,
+    string_builder.from_string(">"),
     result.body,
     // TODO: `result.scripts`
     string_builder.from_string("</body>\n</html>\n"),

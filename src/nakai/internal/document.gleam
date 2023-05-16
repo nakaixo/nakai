@@ -8,6 +8,7 @@ pub type Document {
   Document(
     doctype: Option(String),
     html_attrs: StringBuilder,
+    body_attrs: StringBuilder,
     head: StringBuilder,
     body: StringBuilder,
     scripts: List(StringBuilder),
@@ -18,6 +19,7 @@ pub fn new() {
   Document(
     doctype: option.None,
     html_attrs: string_builder.new(),
+    body_attrs: string_builder.new(),
     head: string_builder.new(),
     body: string_builder.new(),
     scripts: [],
@@ -29,6 +31,7 @@ pub fn merge(self: Document, new: Document) -> Document {
     // Overwrite the doctype with a newer one, unless the newer one is `None`
     doctype: option.or(new.doctype, self.doctype),
     html_attrs: string_builder.append_builder(self.html_attrs, new.html_attrs),
+    body_attrs: string_builder.append_builder(self.body_attrs, new.body_attrs),
     head: string_builder.append_builder(self.head, new.head),
     body: string_builder.append_builder(self.body, new.body),
     scripts: list.append(self.scripts, new.scripts),
@@ -43,6 +46,13 @@ pub fn append_html_attrs(self: Document, html_attrs: StringBuilder) -> Document 
   Document(
     ..self,
     html_attrs: string_builder.append_builder(self.html_attrs, html_attrs),
+  )
+}
+
+pub fn append_body_attrs(self: Document, body_attrs: StringBuilder) -> Document {
+  Document(
+    ..self,
+    body_attrs: string_builder.append_builder(self.body_attrs, body_attrs),
   )
 }
 
