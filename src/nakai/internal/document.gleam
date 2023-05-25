@@ -1,7 +1,5 @@
-import gleam/io
 import gleam/option.{Option}
 import gleam/list
-import gleam/string
 import gleam/string_builder.{StringBuilder}
 
 pub type Document {
@@ -11,7 +9,7 @@ pub type Document {
     body_attrs: StringBuilder,
     head: StringBuilder,
     body: StringBuilder,
-    scripts: List(StringBuilder),
+    scripts: List(String),
   )
 }
 
@@ -76,34 +74,14 @@ pub fn replace_body(self: Document, body: StringBuilder) -> Document {
   Document(..self, body: body)
 }
 
+pub fn from_script(script: String) -> Document {
+  Document(..new(), scripts: [script])
+}
+
 pub fn into_head(state: Document) -> Document {
   Document(
     ..state,
     head: string_builder.append_builder(state.head, state.body),
     body: string_builder.new(),
   )
-}
-
-pub fn debug(state: Document) -> Document {
-  let doctype_line =
-    state.doctype
-    |> option.map(fn(doctype) { "doctype: " <> doctype <> "\n" })
-    |> option.unwrap("")
-
-  string.concat([
-    doctype_line,
-    "html_attrs: ",
-    string_builder.to_string(state.html_attrs),
-    "\nhead: ",
-    string_builder.to_string(state.head),
-    "\nbody: ",
-    string_builder.to_string(state.body),
-    "\nscripts: ",
-    string_builder.join(state.scripts, "\n")
-    |> string_builder.to_string(),
-    "\n\n\n",
-  ])
-  |> io.println()
-
-  state
 }

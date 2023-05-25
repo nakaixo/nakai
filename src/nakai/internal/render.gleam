@@ -11,26 +11,29 @@ const document_encoding = "
 <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
 "
 
-pub fn render_doctype(doctype: String) -> StringBuilder {
+fn render_doctype(doctype: String) -> StringBuilder {
   string_builder.from_strings(["<!DOCTYPE ", doctype, ">\n"])
 }
 
-pub fn render_children(children: List(Node(a))) -> Document {
+fn render_children(children: List(Node(a))) -> Document {
   children
   |> list.map(render_node)
   |> list.fold(document.new(), document.merge)
 }
 
-pub fn render_attrs(attrs: List(Attr(a))) -> StringBuilder {
+fn render_attrs(attrs: List(Attr(a))) -> StringBuilder {
   attrs
   |> list.map(render_attr)
   |> list.fold(string_builder.new(), string_builder.append_builder)
 }
 
-pub fn render_attr(attr: Attr(a)) -> StringBuilder {
+fn render_attr(attr: Attr(a)) -> StringBuilder {
   case attr {
     Attr(name, value) -> {
-      let sanitized_value = string.replace(value, "\"", "\\\"")
+      let sanitized_value =
+        value
+        |> string.replace("\"", "&quot;")
+        |> string.replace(">", "&gt;")
       string_builder.from_strings([" ", name, "=\"", sanitized_value, "\""])
     }
     Event(_name, _action) -> {
@@ -39,29 +42,23 @@ pub fn render_attr(attr: Attr(a)) -> StringBuilder {
   }
 }
 
-pub fn render_node(tree: Node(a)) -> Document {
+fn render_node(tree: Node(a)) -> Document {
   case tree {
     html.Doctype(doctype) -> document.from_doctype(doctype)
 
-    html.Html(attrs, children) -> {
+    html.Html(attrs, children) ->
       render_children(children)
       |> document.append_html_attrs(render_attrs(attrs))
-    }
 
     html.Head(children) ->
       render_children(children)
       |> document.into_head()
 
-    html.Body(attrs, children) -> {
+    html.Body(attrs, children) ->
       render_children(children)
       |> document.append_body_attrs(render_attrs(attrs))
-    }
 
     html.Fragment(children) -> render_children(children)
-
-    html.Comment(content) ->
-      string_builder.from_strings(["<!-- ", content, " -->"])
-      |> document.from_body()
 
     html.Element(tag, attrs, children) -> {
       let child_document = render_children(children)
@@ -75,12 +72,20 @@ pub fn render_node(tree: Node(a)) -> Document {
       |> document.replace_body(child_document, _)
     }
 
-    html.LeafElement(tag, attrs) -> {
+    html.LeafElement(tag, attrs) ->
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
         render_attrs(attrs),
         string_builder.from_string(" />"),
       ])
+      |> document.from_body()
+
+    html.Comment(content) -> {
+      let content =
+        content
+        |> string.replace("-->", "")
+
+      string_builder.from_strings(["<!-- ", content, " -->"])
       |> document.from_body()
     }
 
@@ -95,8 +100,24 @@ pub fn render_node(tree: Node(a)) -> Document {
       string_builder.from_string(content)
       |> document.from_body()
 
+    html.Script(script) -> document.from_script(script)
+
     html.Nothing -> document.new()
   }
+}
+
+fn render_script(script: String) -> StringBuilder {
+  string_builder.concat([
+    string_builder.from_string("<script>"),
+    string_builder.from_string(script),
+    string_builder.from_string("</script>\n"),
+  ])
+}
+
+fn render_scripts(scripts: List(String)) -> StringBuilder {
+  scripts
+  |> list.map(render_script)
+  |> string_builder.concat()
 }
 
 pub fn render_root(tree: Node(a)) -> StringBuilder {
@@ -114,10 +135,7 @@ pub fn render_root(tree: Node(a)) -> StringBuilder {
     result.body_attrs,
     string_builder.from_string(">"),
     result.body,
-    // TODO: `result.scripts`
+    render_scripts(result.scripts),
     string_builder.from_string("</body>\n</html>\n"),
   ])
-  // Would it be nice to include version info, or would that just open people up to
-  // targeted injection stuff if there's ever a wildly exploitable bug?
-  // string_builder.from_string("</body>\n</html>\n<!-- Nakai vx.x.x -->\n"),
 }

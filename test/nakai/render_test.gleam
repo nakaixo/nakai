@@ -1,4 +1,5 @@
 import nakai
+import nakai/experimental/on
 import nakai/html
 import nakai/html/attrs
 import snapshot
@@ -15,28 +16,18 @@ pub fn hi_friend_test() {
   |> snapshot.match("./test/testdata/hi_friend.html")
 }
 
-pub fn attr_test() {
-  html.div([], [html.Text("Hi friend!")])
-  |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/attr.html")
-}
-
 pub fn head_test() {
   html.Head([html.title("Hi!")])
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/head.html")
-}
+  |> snapshot.match("./test/testdata/head_1.html")
 
-pub fn deep_head_test() {
   html.div([], [html.Head([html.title("Hi!")])])
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/deep_head.html")
-}
+  |> snapshot.match("./test/testdata/head_2.html")
 
-pub fn head_nested_test() {
   html.Head([html.Head([html.Head([html.title("Hi!")])])])
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/head_nested.html")
+  |> snapshot.match("./test/testdata/head_3.html")
 }
 
 pub fn html_attrs_test() {
@@ -59,10 +50,20 @@ pub fn doctype_test() {
   |> snapshot.match("./test/testdata/doctype.html")
 }
 
-pub fn sanitization_test() {
+pub fn text_sanitization_test() {
   html.div_text([], "<script>alert('pwned');</script>")
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/sanitization.html")
+  |> snapshot.match("./test/testdata/text_sanitization.html")
+}
+
+pub fn attr_sanitization_test() {
+  html.div([attrs.id("\"><script>alert('pwned');</script>")], [])
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/attr_sanitization_1.html")
+
+  html.div([on.click("\"><script>alert('pwned');</script>")], [])
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/attr_sanitization_2.html")
 }
 
 pub fn attributes_that_are_gleam_keywords_test() {
@@ -80,4 +81,16 @@ pub fn attributes_with_hyphens_test() {
   ])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/attributes_with_hyphens.html")
+}
+
+pub fn scripts_test() {
+  html.Script("alert('hello!')")
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/scripts.html")
+}
+
+pub fn comment_sanitization_test() {
+  html.Comment("--><script>alert('pwned');</script>")
+  |> nakai.to_string_builder()
+  |> snapshot.match("./test/testdata/comment_sanitization.html")
 }

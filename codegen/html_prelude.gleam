@@ -40,13 +40,26 @@ pub type Node(a) {
   /// ])
   /// ```
   Body(attrs: List(Attr(a)), children: List(Node(a)))
-  /// An HTML comment, which will be included in the document.
+  /// An "transparent" container that will render it's children, but does not add anything
+  /// itself to the document. If you've ever used `React.Fragment` or `<>` and `</>` in
+  /// JSX/React, this is that.
   /// ## Example
   /// ```gleam
-  /// html.Comment("You've uncovered my secrets!")
-  /// // <!-- You've uncovered my secrets! -->
+  /// html.ul([], [
+  ///   // some puppies are hard-coded
+  ///   html.li_text([], "August"),
+  ///   // some are loaded from a server
+  ///   html.Fragment(puppies_fetched_from_api |> list.map(html.li_text([], _)))
+  /// ])
+  /// // <ul>
+  /// //   <li>August</li>
+  /// //   <li>Dot</li>
+  /// //   <li>Mody</li>
+  /// //   <li>Spot</li>
+  /// //   <li>Toby</li>
+  /// // </ul>
   /// ```
-  Comment(content: String)
+  Fragment(children: List(Node(a)))
   /// An HTML element. You shouldn't need to reach for this very often, but it can be a
   /// handy escape hatch if there isn't a shorthand function for the element type you need.
   /// ## Example
@@ -64,6 +77,13 @@ pub type Node(a) {
   /// html.LeafElement("link", [attrs.rel("stylesheet"), attrs.href(...)])
   /// ```
   LeafElement(tag: String, attrs: List(Attr(a)))
+  /// An HTML comment, which will be included in the document.
+  /// ## Example
+  /// ```gleam
+  /// html.Comment("You've uncovered my secrets!")
+  /// // <!-- You've uncovered my secrets! -->
+  /// ```
+  Comment(content: String)
   /// Some plain text to include in the document. The provided text will be escaped, to
   /// make it safe to include in the document.
   /// ## Example
@@ -92,26 +112,14 @@ pub type Node(a) {
   /// // Oh no, we just got got! D:
   /// ```
   UnsafeText(content: String)
-  /// An "transparent" container that will render it's children, but does not add anything
-  /// itself to the document. If you've ever used `React.Fragment` or `<>` and `</>` in
-  /// JSX/React, this is that.
+  /// Add some JavaScript to your page! Scripts will always be inserted at the end of the
+  /// page, regardless of where in the document the `Script` node is, so that your content
+  /// loads first.
   /// ## Example
   /// ```gleam
-  /// html.ul([], [
-  ///   // some puppies are hard-coded
-  ///   html.li_text([], "August"),
-  ///   // some are loaded from a server
-  ///   html.Fragment(puppies_fetched_from_api |> list.map(html.li_text([], _)))
-  /// ])
-  /// // <ul>
-  /// //   <li>August</li>
-  /// //   <li>Dot</li>
-  /// //   <li>Mody</li>
-  /// //   <li>Spot</li>
-  /// //   <li>Toby</li>
-  /// // </ul>
+  /// html.Script("alert('hello, lucy!')")
   /// ```
-  Fragment(children: List(Node(a)))
+  Script(script: String)
   /// Renders absolutely nothing. For when you may or may not have something to render,
   /// and need a way to say "I've got nothing."
   /// ## Example
