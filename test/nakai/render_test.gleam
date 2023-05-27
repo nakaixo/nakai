@@ -1,3 +1,4 @@
+import gleeunit/should
 import nakai
 import nakai/experimental/on
 import nakai/html
@@ -93,4 +94,40 @@ pub fn comment_sanitization_test() {
   html.Comment("--><script>alert('pwned');</script>")
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/comment_sanitization.html")
+}
+
+pub fn inline_test() {
+  html.Nothing
+  |> nakai.to_inline_string()
+  |> should.equal("")
+
+  html.p_text([], "hello, computer!")
+  |> nakai.to_inline_string()
+  |> should.equal("<p>hello, computer!</p>")
+
+  html.div(
+    [],
+    [html.h1_text([], "Bandit"), html.p_text([], "He's a really good boy!")],
+  )
+  |> nakai.to_inline_string()
+  |> should.equal("<div><h1>Bandit</h1><p>He's a really good boy!</p></div>")
+
+  html.div(
+    [],
+    [
+      html.Body(
+        [attrs.class("lol")],
+        [
+          html.Html(
+            [attrs.lang("en-US")],
+            [html.p_text([], "This is obviously a very silly thing to do")],
+          ),
+        ],
+      ),
+    ],
+  )
+  |> nakai.to_inline_string
+  |> should.equal(
+    "<div><body class=\"lol\"><html lang=\"en-US\"><p>This is obviously a very silly thing to do</p></html></body></div>",
+  )
 }

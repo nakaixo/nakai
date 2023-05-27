@@ -10,16 +10,15 @@ type Builder(a, output) {
   Builder(map: fn(Node(a)) -> output, fold: fn(List(output)) -> output)
 }
 
-fn document_builder() -> Builder(a, Document) {
-  Builder(
-    map: render_document_node,
-    fold: list.fold(_, document.new(), document.merge()),
-  )
-}
+const document_builder = Builder(
+  map: render_document_node,
+  fold: document.concat,
+)
 
-fn inline_builder() -> Builder(a, StringBuilder) {
-  Builder(map: render_inline_node, fold: string_builder.concat)
-}
+const inline_builder = Builder(
+  map: render_inline_node,
+  fold: string_builder.concat,
+)
 
 fn render_doctype(doctype: String) -> StringBuilder {
   string_builder.from_strings(["<!DOCTYPE ", doctype, ">\n"])
@@ -60,21 +59,21 @@ fn render_document_node(tree: Node(a)) -> Document {
     html.Doctype(doctype) -> document.from_doctype(doctype)
 
     html.Html(attrs, children) ->
-      render_children(children, document_builder())
+      render_children(children, document_builder)
       |> document.append_html_attrs(render_attrs(attrs))
 
     html.Head(children) ->
-      render_children(children, document_builder())
+      render_children(children, document_builder)
       |> document.into_head()
 
     html.Body(attrs, children) ->
-      render_children(children, document_builder())
+      render_children(children, document_builder)
       |> document.append_body_attrs(render_attrs(attrs))
 
-    html.Fragment(children) -> render_children(children, document_builder())
+    html.Fragment(children) -> render_children(children, document_builder)
 
     html.Element(tag, attrs, children) -> {
-      let child_document = render_children(children, document_builder())
+      let child_document = render_children(children, document_builder)
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
         render_attrs(attrs),
@@ -120,35 +119,28 @@ fn render_document_node(tree: Node(a)) -> Document {
 
 fn render_inline_node(tree: Node(a)) -> StringBuilder {
   case tree {
-    html.Doctype(doctype) -> document.from_doctype(doctype)
+    html.Doctype(doctype) -> render_doctype(doctype)
 
     html.Html(attrs, children) ->
-      render_inline_node(
-        html.Element("html", attrs, children),
-        inline_builder(),
-      )
+      render_inline_node(html.Element("html", attrs, children))
 
     html.Head(children) ->
-      render_inline_node(html.Element("head", [], children), inline_builder())
+      render_inline_node(html.Element("head", [], children))
 
     html.Body(attrs, children) ->
-      render_inline_node(
-        html.Element("body", attrs, children),
-        inline_builder(),
-      )
+      render_inline_node(html.Element("body", attrs, children))
 
-    html.Fragment(children) -> render_children(children, inline_builder())
+    html.Fragment(children) -> render_children(children, inline_builder)
 
     html.Element(tag, attrs, children) -> {
-      let child_document = render_children(children, inline_builder())
+      let child_document = render_children(children, inline_builder)
       string_builder.concat([
         string_builder.from_strings(["<", tag]),
         render_attrs(attrs),
         string_builder.from_string(">"),
-        child_document.body,
+        child_document,
         string_builder.from_strings(["</", tag, ">"]),
       ])
-      |> document.replace_body(child_document, _)
     }
 
     html.LeafElement(tag, attrs) ->
@@ -157,14 +149,12 @@ fn render_inline_node(tree: Node(a)) -> StringBuilder {
         render_attrs(attrs),
         string_builder.from_string(" />"),
       ])
-      |> document.from_body()
 
     html.Comment(content) -> {
       let content =
         content
         |> string.replace("-->", "")
       string_builder.from_strings(["<!-- ", content, " -->"])
-      |> document.from_body()
     }
 
     html.Text(content) ->
@@ -172,11 +162,8 @@ fn render_inline_node(tree: Node(a)) -> StringBuilder {
       |> string_builder.replace("&", "&amp;")
       |> string_builder.replace("<", "&lt;")
       |> string_builder.replace(">", "&gt;")
-      |> document.from_body()
 
-    html.UnsafeText(content) ->
-      string_builder.from_string(content)
-      |> document.from_body()
+    html.UnsafeText(content) -> string_builder.from_string(content)
 
     html.Script(script) ->
       render_inline_node(html.Element("script", [], [html.Text(script)]))

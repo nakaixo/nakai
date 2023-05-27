@@ -41,6 +41,11 @@ pub fn merge(self: Document, new: Document) -> Document {
   )
 }
 
+pub fn concat(docs: List(Document)) -> Document {
+  docs
+  |> list.fold(new(), merge)
+}
+
 pub fn from_doctype(doctype: String) -> Document {
   Document(..new(), doctype: option.Some(doctype))
 }
