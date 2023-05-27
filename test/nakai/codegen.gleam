@@ -42,7 +42,7 @@ fn codegen_element(element: ElementDescription) -> String {
   case element {
     Element(name, leaf) if leaf == False ->
       "
-/// The HTML [`<" <> name <> ">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ") element
+/// The [HTML `<" <> name <> ">` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
 pub fn " <> name <> "(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: \"" <> name <> "\", attrs: attrs, children: children)
 }
@@ -54,7 +54,7 @@ pub fn " <> name <> "_text(attrs: List(Attr(a)), text: String) -> Node(a) {
 "
     Element(name, leaf) if leaf == True ->
       "
-/// The HTML [`<" <> name <> " />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ") element
+/// The [HTML `<" <> name <> " />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
 pub fn " <> name <> "(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: \"" <> name <> "\", attrs: attrs)
 }

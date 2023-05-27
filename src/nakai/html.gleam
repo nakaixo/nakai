@@ -153,7 +153,7 @@ pub fn title(text: String) -> Node(a) {
   Element("title", [], [Text(text)])
 }
 
-/// The HTML [`<a>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) element
+/// The [HTML `<a>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
 pub fn a(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "a", attrs: attrs, children: children)
 }
@@ -163,7 +163,7 @@ pub fn a_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "a", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<abbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr) element
+/// The [HTML `<abbr>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr)
 pub fn abbr(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "abbr", attrs: attrs, children: children)
 }
@@ -173,7 +173,7 @@ pub fn abbr_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "abbr", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<address>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) element
+/// The [HTML `<address>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
 pub fn address(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "address", attrs: attrs, children: children)
 }
@@ -183,12 +183,12 @@ pub fn address_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "address", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<area />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area) element
+/// The [HTML `<area />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area)
 pub fn area(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "area", attrs: attrs)
 }
 
-/// The HTML [`<article>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) element
+/// The [HTML `<article>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article)
 pub fn article(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "article", attrs: attrs, children: children)
 }
@@ -198,7 +198,7 @@ pub fn article_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "article", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<aside>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside) element
+/// The [HTML `<aside>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)
 pub fn aside(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "aside", attrs: attrs, children: children)
 }
@@ -208,7 +208,7 @@ pub fn aside_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "aside", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<audio>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) element
+/// The [HTML `<audio>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio)
 pub fn audio(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "audio", attrs: attrs, children: children)
 }
@@ -218,7 +218,7 @@ pub fn audio_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "audio", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<b>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b) element
+/// The [HTML `<b>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b)
 pub fn b(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "b", attrs: attrs, children: children)
 }
@@ -228,12 +228,12 @@ pub fn b_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "b", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<base />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base) element
+/// The [HTML `<base />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)
 pub fn base(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "base", attrs: attrs)
 }
 
-/// The HTML [`<bdi>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi) element
+/// The [HTML `<bdi>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi)
 pub fn bdi(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "bdi", attrs: attrs, children: children)
 }
@@ -243,7 +243,7 @@ pub fn bdi_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "bdi", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<bdo>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo) element
+/// The [HTML `<bdo>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo)
 pub fn bdo(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "bdo", attrs: attrs, children: children)
 }
@@ -253,7 +253,7 @@ pub fn bdo_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "bdo", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) element
+/// The [HTML `<blockquote>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote)
 pub fn blockquote(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "blockquote", attrs: attrs, children: children)
 }
@@ -263,12 +263,12 @@ pub fn blockquote_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "blockquote", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<br />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br) element
+/// The [HTML `<br />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br)
 pub fn br(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "br", attrs: attrs)
 }
 
-/// The HTML [`<button>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) element
+/// The [HTML `<button>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
 pub fn button(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "button", attrs: attrs, children: children)
 }
@@ -278,7 +278,7 @@ pub fn button_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "button", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas) element
+/// The [HTML `<canvas>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas)
 pub fn canvas(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "canvas", attrs: attrs, children: children)
 }
@@ -288,7 +288,7 @@ pub fn canvas_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "canvas", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<caption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption) element
+/// The [HTML `<caption>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption)
 pub fn caption(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "caption", attrs: attrs, children: children)
 }
@@ -298,7 +298,7 @@ pub fn caption_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "caption", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<cite>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite) element
+/// The [HTML `<cite>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite)
 pub fn cite(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "cite", attrs: attrs, children: children)
 }
@@ -308,7 +308,7 @@ pub fn cite_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "cite", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<code>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code) element
+/// The [HTML `<code>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code)
 pub fn code(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "code", attrs: attrs, children: children)
 }
@@ -318,7 +318,7 @@ pub fn code_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "code", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<col>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col) element
+/// The [HTML `<col>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col)
 pub fn col(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "col", attrs: attrs, children: children)
 }
@@ -328,7 +328,7 @@ pub fn col_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "col", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<colgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup) element
+/// The [HTML `<colgroup>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)
 pub fn colgroup(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "colgroup", attrs: attrs, children: children)
 }
@@ -338,7 +338,7 @@ pub fn colgroup_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "colgroup", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<data>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data) element
+/// The [HTML `<data>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data)
 pub fn data(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "data", attrs: attrs, children: children)
 }
@@ -348,7 +348,7 @@ pub fn data_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "data", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<datalist>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist) element
+/// The [HTML `<datalist>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
 pub fn datalist(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "datalist", attrs: attrs, children: children)
 }
@@ -358,7 +358,7 @@ pub fn datalist_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "datalist", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<dd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd) element
+/// The [HTML `<dd>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd)
 pub fn dd(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "dd", attrs: attrs, children: children)
 }
@@ -368,7 +368,7 @@ pub fn dd_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "dd", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<del>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del) element
+/// The [HTML `<del>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del)
 pub fn del(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "del", attrs: attrs, children: children)
 }
@@ -378,7 +378,7 @@ pub fn del_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "del", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element
+/// The [HTML `<details>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
 pub fn details(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "details", attrs: attrs, children: children)
 }
@@ -388,7 +388,7 @@ pub fn details_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "details", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<dfn>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn) element
+/// The [HTML `<dfn>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn)
 pub fn dfn(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "dfn", attrs: attrs, children: children)
 }
@@ -398,7 +398,7 @@ pub fn dfn_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "dfn", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<dialog>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element
+/// The [HTML `<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 pub fn dialog(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "dialog", attrs: attrs, children: children)
 }
@@ -408,7 +408,7 @@ pub fn dialog_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "dialog", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<div>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) element
+/// The [HTML `<div>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div)
 pub fn div(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "div", attrs: attrs, children: children)
 }
@@ -418,7 +418,7 @@ pub fn div_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "div", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<dl>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) element
+/// The [HTML `<dl>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
 pub fn dl(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "dl", attrs: attrs, children: children)
 }
@@ -428,7 +428,7 @@ pub fn dl_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "dl", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<dt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt) element
+/// The [HTML `<dt>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt)
 pub fn dt(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "dt", attrs: attrs, children: children)
 }
@@ -438,7 +438,7 @@ pub fn dt_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "dt", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<em>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em) element
+/// The [HTML `<em>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
 pub fn em(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "em", attrs: attrs, children: children)
 }
@@ -448,7 +448,7 @@ pub fn em_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "em", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<embed>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed) element
+/// The [HTML `<embed>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed)
 pub fn embed(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "embed", attrs: attrs, children: children)
 }
@@ -458,7 +458,7 @@ pub fn embed_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "embed", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<fieldset>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset) element
+/// The [HTML `<fieldset>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
 pub fn fieldset(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "fieldset", attrs: attrs, children: children)
 }
@@ -468,7 +468,7 @@ pub fn fieldset_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "fieldset", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<figcaption>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption) element
+/// The [HTML `<figcaption>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption)
 pub fn figcaption(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "figcaption", attrs: attrs, children: children)
 }
@@ -478,7 +478,7 @@ pub fn figcaption_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "figcaption", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<figure>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) element
+/// The [HTML `<figure>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure)
 pub fn figure(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "figure", attrs: attrs, children: children)
 }
@@ -488,7 +488,7 @@ pub fn figure_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "figure", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<footer>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) element
+/// The [HTML `<footer>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)
 pub fn footer(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "footer", attrs: attrs, children: children)
 }
@@ -498,7 +498,7 @@ pub fn footer_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "footer", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<form>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) element
+/// The [HTML `<form>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)
 pub fn form(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "form", attrs: attrs, children: children)
 }
@@ -508,7 +508,7 @@ pub fn form_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "form", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<h1>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1) element
+/// The [HTML `<h1>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1)
 pub fn h1(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "h1", attrs: attrs, children: children)
 }
@@ -518,7 +518,7 @@ pub fn h1_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "h1", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<h2>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2) element
+/// The [HTML `<h2>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h2)
 pub fn h2(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "h2", attrs: attrs, children: children)
 }
@@ -528,7 +528,7 @@ pub fn h2_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "h2", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<h3>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3) element
+/// The [HTML `<h3>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h3)
 pub fn h3(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "h3", attrs: attrs, children: children)
 }
@@ -538,7 +538,7 @@ pub fn h3_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "h3", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<h4>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4) element
+/// The [HTML `<h4>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h4)
 pub fn h4(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "h4", attrs: attrs, children: children)
 }
@@ -548,7 +548,7 @@ pub fn h4_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "h4", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<h5>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5) element
+/// The [HTML `<h5>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h5)
 pub fn h5(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "h5", attrs: attrs, children: children)
 }
@@ -558,7 +558,7 @@ pub fn h5_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "h5", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6) element
+/// The [HTML `<h6>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h6)
 pub fn h6(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "h6", attrs: attrs, children: children)
 }
@@ -568,7 +568,7 @@ pub fn h6_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "h6", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<header>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) element
+/// The [HTML `<header>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)
 pub fn header(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "header", attrs: attrs, children: children)
 }
@@ -578,12 +578,12 @@ pub fn header_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "header", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<hr />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr) element
+/// The [HTML `<hr />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr)
 pub fn hr(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "hr", attrs: attrs)
 }
 
-/// The HTML [`<i>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i) element
+/// The [HTML `<i>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i)
 pub fn i(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "i", attrs: attrs, children: children)
 }
@@ -593,7 +593,7 @@ pub fn i_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "i", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) element
+/// The [HTML `<iframe>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
 pub fn iframe(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "iframe", attrs: attrs, children: children)
 }
@@ -603,17 +603,17 @@ pub fn iframe_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "iframe", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<img />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) element
+/// The [HTML `<img />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
 pub fn img(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "img", attrs: attrs)
 }
 
-/// The HTML [`<input />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) element
+/// The [HTML `<input />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
 pub fn input(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "input", attrs: attrs)
 }
 
-/// The HTML [`<ins>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins) element
+/// The [HTML `<ins>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins)
 pub fn ins(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "ins", attrs: attrs, children: children)
 }
@@ -623,7 +623,7 @@ pub fn ins_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "ins", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<kbd>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd) element
+/// The [HTML `<kbd>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd)
 pub fn kbd(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "kbd", attrs: attrs, children: children)
 }
@@ -633,7 +633,7 @@ pub fn kbd_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "kbd", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<label>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) element
+/// The [HTML `<label>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
 pub fn label(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "label", attrs: attrs, children: children)
 }
@@ -643,7 +643,7 @@ pub fn label_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "label", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<legend>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend) element
+/// The [HTML `<legend>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend)
 pub fn legend(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "legend", attrs: attrs, children: children)
 }
@@ -653,7 +653,7 @@ pub fn legend_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "legend", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<li>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) element
+/// The [HTML `<li>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li)
 pub fn li(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "li", attrs: attrs, children: children)
 }
@@ -663,12 +663,12 @@ pub fn li_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "li", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<link />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element
+/// The [HTML `<link />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link)
 pub fn link(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "link", attrs: attrs)
 }
 
-/// The HTML [`<main>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main) element
+/// The [HTML `<main>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)
 pub fn main(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "main", attrs: attrs, children: children)
 }
@@ -678,7 +678,7 @@ pub fn main_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "main", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<map>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map) element
+/// The [HTML `<map>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map)
 pub fn map(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "map", attrs: attrs, children: children)
 }
@@ -688,7 +688,7 @@ pub fn map_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "map", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<mark>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark) element
+/// The [HTML `<mark>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
 pub fn mark(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "mark", attrs: attrs, children: children)
 }
@@ -698,7 +698,7 @@ pub fn mark_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "mark", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<math>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/math) element
+/// The [HTML `<math>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/math)
 pub fn math(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "math", attrs: attrs, children: children)
 }
@@ -708,7 +708,7 @@ pub fn math_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "math", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<menu>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu) element
+/// The [HTML `<menu>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu)
 pub fn menu(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "menu", attrs: attrs, children: children)
 }
@@ -718,7 +718,7 @@ pub fn menu_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "menu", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<menuitem>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menuitem) element
+/// The [HTML `<menuitem>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menuitem)
 pub fn menuitem(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "menuitem", attrs: attrs, children: children)
 }
@@ -728,12 +728,12 @@ pub fn menuitem_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "menuitem", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<meta />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) element
+/// The [HTML `<meta />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)
 pub fn meta(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "meta", attrs: attrs)
 }
 
-/// The HTML [`<meter>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter) element
+/// The [HTML `<meter>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter)
 pub fn meter(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "meter", attrs: attrs, children: children)
 }
@@ -743,7 +743,7 @@ pub fn meter_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "meter", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<nav>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav) element
+/// The [HTML `<nav>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav)
 pub fn nav(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "nav", attrs: attrs, children: children)
 }
@@ -753,7 +753,7 @@ pub fn nav_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "nav", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<noscript>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) element
+/// The [HTML `<noscript>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)
 pub fn noscript(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "noscript", attrs: attrs, children: children)
 }
@@ -763,7 +763,7 @@ pub fn noscript_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "noscript", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<object>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object) element
+/// The [HTML `<object>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object)
 pub fn object(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "object", attrs: attrs, children: children)
 }
@@ -773,7 +773,7 @@ pub fn object_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "object", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<ol>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol) element
+/// The [HTML `<ol>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol)
 pub fn ol(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "ol", attrs: attrs, children: children)
 }
@@ -783,7 +783,7 @@ pub fn ol_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "ol", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<optgroup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup) element
+/// The [HTML `<optgroup>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
 pub fn optgroup(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "optgroup", attrs: attrs, children: children)
 }
@@ -793,7 +793,7 @@ pub fn optgroup_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "optgroup", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<option>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option) element
+/// The [HTML `<option>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option)
 pub fn option(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "option", attrs: attrs, children: children)
 }
@@ -803,7 +803,7 @@ pub fn option_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "option", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<output>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output) element
+/// The [HTML `<output>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output)
 pub fn output(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "output", attrs: attrs, children: children)
 }
@@ -813,7 +813,7 @@ pub fn output_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "output", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) element
+/// The [HTML `<p>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p)
 pub fn p(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "p", attrs: attrs, children: children)
 }
@@ -823,7 +823,7 @@ pub fn p_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "p", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<param>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param) element
+/// The [HTML `<param>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param)
 pub fn param(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "param", attrs: attrs, children: children)
 }
@@ -833,7 +833,7 @@ pub fn param_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "param", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<picture>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture) element
+/// The [HTML `<picture>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture)
 pub fn picture(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "picture", attrs: attrs, children: children)
 }
@@ -843,7 +843,7 @@ pub fn picture_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "picture", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<pre>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre) element
+/// The [HTML `<pre>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre)
 pub fn pre(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "pre", attrs: attrs, children: children)
 }
@@ -853,7 +853,7 @@ pub fn pre_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "pre", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<progress>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) element
+/// The [HTML `<progress>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
 pub fn progress(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "progress", attrs: attrs, children: children)
 }
@@ -863,7 +863,7 @@ pub fn progress_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "progress", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<q>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q) element
+/// The [HTML `<q>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q)
 pub fn q(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "q", attrs: attrs, children: children)
 }
@@ -873,7 +873,7 @@ pub fn q_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "q", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<rp>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp) element
+/// The [HTML `<rp>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rp)
 pub fn rp(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "rp", attrs: attrs, children: children)
 }
@@ -883,7 +883,7 @@ pub fn rp_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "rp", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<rt>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt) element
+/// The [HTML `<rt>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt)
 pub fn rt(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "rt", attrs: attrs, children: children)
 }
@@ -893,7 +893,7 @@ pub fn rt_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "rt", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<ruby>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby) element
+/// The [HTML `<ruby>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby)
 pub fn ruby(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "ruby", attrs: attrs, children: children)
 }
@@ -903,7 +903,7 @@ pub fn ruby_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "ruby", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<s>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s) element
+/// The [HTML `<s>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s)
 pub fn s(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "s", attrs: attrs, children: children)
 }
@@ -913,7 +913,7 @@ pub fn s_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "s", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<samp>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp) element
+/// The [HTML `<samp>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp)
 pub fn samp(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "samp", attrs: attrs, children: children)
 }
@@ -923,7 +923,7 @@ pub fn samp_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "samp", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<section>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) element
+/// The [HTML `<section>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section)
 pub fn section(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "section", attrs: attrs, children: children)
 }
@@ -933,7 +933,7 @@ pub fn section_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "section", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<select>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) element
+/// The [HTML `<select>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
 pub fn select(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "select", attrs: attrs, children: children)
 }
@@ -943,7 +943,7 @@ pub fn select_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "select", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<small>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small) element
+/// The [HTML `<small>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small)
 pub fn small(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "small", attrs: attrs, children: children)
 }
@@ -953,12 +953,12 @@ pub fn small_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "small", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<source />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source) element
+/// The [HTML `<source />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source)
 pub fn source(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "source", attrs: attrs)
 }
 
-/// The HTML [`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span) element
+/// The [HTML `<span>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span)
 pub fn span(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "span", attrs: attrs, children: children)
 }
@@ -968,7 +968,7 @@ pub fn span_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "span", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<strong>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) element
+/// The [HTML `<strong>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
 pub fn strong(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "strong", attrs: attrs, children: children)
 }
@@ -978,7 +978,7 @@ pub fn strong_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "strong", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<sub>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub) element
+/// The [HTML `<sub>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub)
 pub fn sub(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "sub", attrs: attrs, children: children)
 }
@@ -988,7 +988,7 @@ pub fn sub_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "sub", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<summary>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary) element
+/// The [HTML `<summary>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
 pub fn summary(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "summary", attrs: attrs, children: children)
 }
@@ -998,7 +998,7 @@ pub fn summary_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "summary", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<sup>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup) element
+/// The [HTML `<sup>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup)
 pub fn sup(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "sup", attrs: attrs, children: children)
 }
@@ -1008,7 +1008,7 @@ pub fn sup_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "sup", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<svg>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/svg) element
+/// The [HTML `<svg>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/svg)
 pub fn svg(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "svg", attrs: attrs, children: children)
 }
@@ -1018,7 +1018,7 @@ pub fn svg_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "svg", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<table>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) element
+/// The [HTML `<table>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table)
 pub fn table(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "table", attrs: attrs, children: children)
 }
@@ -1028,7 +1028,7 @@ pub fn table_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "table", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<tbody>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody) element
+/// The [HTML `<tbody>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody)
 pub fn tbody(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "tbody", attrs: attrs, children: children)
 }
@@ -1038,7 +1038,7 @@ pub fn tbody_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "tbody", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<td>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td) element
+/// The [HTML `<td>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td)
 pub fn td(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "td", attrs: attrs, children: children)
 }
@@ -1048,7 +1048,7 @@ pub fn td_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "td", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<textarea>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) element
+/// The [HTML `<textarea>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea)
 pub fn textarea(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "textarea", attrs: attrs, children: children)
 }
@@ -1058,7 +1058,7 @@ pub fn textarea_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "textarea", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<tfoot>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot) element
+/// The [HTML `<tfoot>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot)
 pub fn tfoot(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "tfoot", attrs: attrs, children: children)
 }
@@ -1068,7 +1068,7 @@ pub fn tfoot_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "tfoot", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<th>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th) element
+/// The [HTML `<th>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th)
 pub fn th(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "th", attrs: attrs, children: children)
 }
@@ -1078,7 +1078,7 @@ pub fn th_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "th", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<thead>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead) element
+/// The [HTML `<thead>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead)
 pub fn thead(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "thead", attrs: attrs, children: children)
 }
@@ -1088,7 +1088,7 @@ pub fn thead_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "thead", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<time>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time) element
+/// The [HTML `<time>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time)
 pub fn time(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "time", attrs: attrs, children: children)
 }
@@ -1098,7 +1098,7 @@ pub fn time_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "time", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<tr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr) element
+/// The [HTML `<tr>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr)
 pub fn tr(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "tr", attrs: attrs, children: children)
 }
@@ -1108,12 +1108,12 @@ pub fn tr_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "tr", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<track />`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track) element
+/// The [HTML `<track />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track)
 pub fn track(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "track", attrs: attrs)
 }
 
-/// The HTML [`<u>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u) element
+/// The [HTML `<u>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u)
 pub fn u(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "u", attrs: attrs, children: children)
 }
@@ -1123,7 +1123,7 @@ pub fn u_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "u", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<ul>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) element
+/// The [HTML `<ul>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)
 pub fn ul(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "ul", attrs: attrs, children: children)
 }
@@ -1133,7 +1133,7 @@ pub fn ul_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "ul", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<var>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var) element
+/// The [HTML `<var>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var)
 pub fn var(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "var", attrs: attrs, children: children)
 }
@@ -1143,7 +1143,7 @@ pub fn var_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "var", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) element
+/// The [HTML `<video>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video)
 pub fn video(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "video", attrs: attrs, children: children)
 }
@@ -1153,7 +1153,7 @@ pub fn video_text(attrs: List(Attr(a)), text: String) -> Node(a) {
   Element(tag: "video", attrs: attrs, children: [Text(text)])
 }
 
-/// The HTML [`<wbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr) element
+/// The [HTML `<wbr>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr)
 pub fn wbr(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
   Element(tag: "wbr", attrs: attrs, children: children)
 }
