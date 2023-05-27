@@ -2,6 +2,11 @@ import gleam/option.{Option}
 import gleam/list
 import gleam/string_builder.{StringBuilder}
 
+pub const encoding = "
+<meta charset=\"utf-8\" />
+<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
+"
+
 pub type Document {
   Document(
     doctype: Option(String),
@@ -34,6 +39,11 @@ pub fn merge(self: Document, new: Document) -> Document {
     body: string_builder.append_builder(self.body, new.body),
     scripts: list.append(self.scripts, new.scripts),
   )
+}
+
+pub fn concat(docs: List(Document)) -> Document {
+  docs
+  |> list.fold(new(), merge)
 }
 
 pub fn from_doctype(doctype: String) -> Document {

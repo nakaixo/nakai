@@ -8,7 +8,7 @@ import nakai/internal/render
 /// |> nakai.to_string_builder()
 /// ```
 pub fn to_string_builder(tree: Node(a)) -> StringBuilder {
-  render.render_root(tree)
+  render.render_document(tree)
 }
 
 /// ## Examples
@@ -17,6 +17,15 @@ pub fn to_string_builder(tree: Node(a)) -> StringBuilder {
 /// |> nakai.to_string()
 /// ```
 pub fn to_string(tree: Node(a)) -> String {
-  render.render_root(tree)
-  |> string_builder.to_string
+  render.render_document(tree)
+  |> string_builder.to_string()
+}
+
+pub fn to_inline_string_builder(tree: Node(a)) -> StringBuilder {
+  render.render_inline(tree)
+}
+
+pub fn to_inline_string(tree: Node(a)) -> String {
+  render.render_inline(tree)
+  |> string_builder.to_string()
 }

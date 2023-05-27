@@ -24,3 +24,6 @@ format:
 test: build
 	@$(GLEAM) test
 .PHONY: test
+
+bench: build
+	@$(GLEAM) run -m nakai_benchmark

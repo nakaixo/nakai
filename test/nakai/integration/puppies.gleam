@@ -9,19 +9,22 @@ type Puppy {
 }
 
 const puppies = [
+  Puppy("August", good: True, soft: True),
   Puppy("Dot", good: True, soft: True),
   Puppy("Mady", good: True, soft: True),
+  Puppy("Spot", good: True, soft: True),
+  Puppy("Toby", good: True, soft: True),
 ]
 
 fn puppy_description(puppy: Puppy) {
   html.li([], [html.Text(puppy.name), html.Text(" is a good and soft puppy")])
 }
 
-pub fn puppies_list() {
+fn puppies_list() {
   html.ul([], list.map(puppies, puppy_description))
 }
 
-pub fn puppies_test() {
+pub fn app() {
   html.Html(
     [attrs.lang("en-US")],
     [
@@ -29,6 +32,10 @@ pub fn puppies_test() {
       html.div([], [puppies_list()]),
     ],
   )
+}
+
+pub fn app_test() {
+  app()
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/puppies.html")
+  |> snapshot.match("./test/testdata/integration/puppies.html")
 }
