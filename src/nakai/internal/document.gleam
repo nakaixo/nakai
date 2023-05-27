@@ -2,6 +2,11 @@ import gleam/option.{Option}
 import gleam/list
 import gleam/string_builder.{StringBuilder}
 
+pub const encoding = "
+<meta charset=\"utf-8\" />
+<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
+"
+
 pub type Document {
   Document(
     doctype: Option(String),
