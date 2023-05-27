@@ -35,5 +35,12 @@ pub fn app() -> String {
   )
   |> nakai.to_string()
 }
-
 ```
+
+## Development
+
+While Nakai itself is pure Gleam, the benchmarks require having [Elixir] installed,
+and some of its dependencies require [Rebar3] to compile.
+
+[elixir]: https://elixir-lang.org/
+[rebar3]: https://rebar3.org/
