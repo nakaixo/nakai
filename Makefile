@@ -20,6 +20,7 @@ docs: build
 format:
 	@$(GLEAM) format
 	@$(GLEAM) run -m nakai/codegen
+.PHONY: format
 
 test: build
 	@$(GLEAM) test
@@ -27,3 +28,4 @@ test: build
 
 bench: build
 	@$(GLEAM) run -m nakai_benchmark
+.PHONY: bench
