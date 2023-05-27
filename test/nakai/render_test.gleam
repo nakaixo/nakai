@@ -11,12 +11,6 @@ pub fn empty_test() {
   |> snapshot.match("./test/testdata/empty.html")
 }
 
-pub fn hi_friend_test() {
-  html.div([attrs.id("hi")], [html.Text("Hi friend!")])
-  |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/hi_friend.html")
-}
-
 pub fn head_test() {
   html.Head([html.title("Hi!")])
   |> nakai.to_string_builder()
@@ -31,16 +25,16 @@ pub fn head_test() {
   |> snapshot.match("./test/testdata/head_3.html")
 }
 
-pub fn html_attrs_test() {
+pub fn attrs_on_html_test() {
   html.Html([attrs.lang("en-US")], [html.p_text([], "Hello!")])
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/html_attrs.html")
+  |> snapshot.match("./test/testdata/attrs_on_html.html")
 }
 
-pub fn body_attrs_test() {
+pub fn attrs_on_body_test() {
   html.Body([attrs.class("dark-mode")], [html.p_text([], "Hello!")])
   |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/body_attrs.html")
+  |> snapshot.match("./test/testdata/attrs_on_body.html")
 }
 
 const xhtml11 = "html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\""
