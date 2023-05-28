@@ -6,14 +6,14 @@ pub fn basic_test() {
   {
     html2.element("div")
     |> html2.attr("id", "x")
-    |> html2.child({
+    |> html2.child(
       html2.element("h1")
-      |> html2.text("hello, computer!")
-    })
-    |> html2.child({
+      |> html2.text("hello, computer!"),
+    )
+    |> html2.child(
       html2.element("p")
-      |> html2.text("there's a radio attached to my head")
-    })
+      |> html2.text("there's a radio attached to my head"),
+    )
   }
   |> nakai.to_inline_string()
   |> should.equal(
