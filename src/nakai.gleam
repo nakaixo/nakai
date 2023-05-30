@@ -5,7 +5,8 @@
 //// - An `inline` builder that should mostly be used for snippets, and partial bits of
 ////   HTML that will be inlined into a full document; hence the name. It renders things
 ////   much more literally. If you tell it to give you a `<head>` element inside a
-////   `<p>`, it will, as an example.
+////   `<p>`, it will, as an example. As a benefit for the trade off, it can be much
+////   faster for certain use cases.
 //// - A future experimental DOM renderer (meant for use in the browser) that isn't
 ////   actually done yet.
 
