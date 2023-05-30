@@ -11,12 +11,12 @@ const benchmark_data = [
 pub fn main() {
   [
     benchmark.Function(
-      label: "nakai.to_string_builder",
-      callable: fn(app) { fn() { nakai.to_string_builder(app()) } },
+      "nakai.to_string_builder",
+      fn(app) { fn() { nakai.to_string_builder(app()) } },
     ),
     benchmark.Function(
-      label: "nakai.to_inline_string_builder",
-      callable: fn(app) { fn() { nakai.to_inline_string_builder(app()) } },
+      "nakai.to_inline_string_builder",
+      fn(app) { fn() { nakai.to_inline_string_builder(app()) } },
     ),
   ]
   |> benchmark.run(benchmark_data)
