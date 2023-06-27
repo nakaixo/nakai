@@ -1,2 +1,2 @@
-Makefile  -linguist-detectable
-*.sh  -linguist-detectable
+src/nakai/html.gleam  linguist-generated
+src/nakai/html/attrs.gleam  linguist-generated
