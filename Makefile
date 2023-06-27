@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-GLEAM ?= $(shell which gleam)
+GLEAM ?= gleam
 
 
 all: build
