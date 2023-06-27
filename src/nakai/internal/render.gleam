@@ -107,7 +107,7 @@ fn render_document_node(tree: Node(a)) -> Document {
       |> string_builder.replace(">", "&gt;")
       |> document.from_body()
 
-    html.UnsafeText(content) ->
+    html.UnsafeInlineHtml(content) ->
       string_builder.from_string(content)
       |> document.from_body()
 
@@ -163,7 +163,7 @@ fn render_inline_node(tree: Node(a)) -> StringBuilder {
       |> string_builder.replace("<", "&lt;")
       |> string_builder.replace(">", "&gt;")
 
-    html.UnsafeText(content) -> string_builder.from_string(content)
+    html.UnsafeInlineHtml(content) -> string_builder.from_string(content)
 
     html.Script(script) ->
       render_inline_node(html.Element("script", [], [html.Text(script)]))

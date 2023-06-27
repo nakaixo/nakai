@@ -122,11 +122,11 @@ pub type Node(a) {
   /// ```
   /// ```gleam
   /// // Time to trust some unvalidated user input! :^)
-  /// html.div([], [html.UnsafeText("<script>alert('pwned');</script>")])
+  /// html.div([], [html.UnsafeInlineHtml("<script>alert('pwned');</script>")])
   /// // <div><script>alert('pwned');</script></div>
   /// // Oh no, we just got got! D:
   /// ```
-  UnsafeText(content: String)
+  UnsafeInlineHtml(content: String)
   /// Add some JavaScript to your page! Scripts will always be inserted at the end of the
   /// page, regardless of where in the document the `Script` node is, so that your content
   /// loads first.
