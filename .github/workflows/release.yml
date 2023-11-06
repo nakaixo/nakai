@@ -11,18 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: aslilac/setup@v1
-        with:
-          archives: |
-            https://mckayla.cloud/tomlq-linux-x64.tar.gz
-
       - run: |
-          if [ "v$(tomlq version -f gleam.toml)" == "${{ github.ref_name }}" ]; then
-            exit 0
+          version="v$(cat gleam.toml | grep -m 1 "version" | sed -r "s/version *= *\"([[:digit:].]+)\"/\1/")"
+          if [ "$version" != "${{ github.ref_name }}" ]; then
+            echo "tag '${{ github.ref_name }}' does not match the version in gleam.toml"
+            echo "expected a tag name 'v$version'"
+            exit 1
           fi
-
-          echo "tag does not match version in gleam.toml, refusing to publish"
-          exit 1
+        name: Version
 
       - uses: ./test/
         name: Verify
