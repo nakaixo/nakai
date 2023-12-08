@@ -1,10 +1,10 @@
 import gleam/list
 import gleam/option
-import gleam/string_builder.{StringBuilder}
+import gleam/string_builder.{type StringBuilder}
 import gleam/string
-import nakai/html.{Node}
-import nakai/html/attrs.{Attr, Event}
-import nakai/internal/document.{Document}
+import nakai/html.{type Node}
+import nakai/html/attrs.{type Attr, Attr, Event}
+import nakai/internal/document.{type Document}
 
 type Builder(a, output) {
   Builder(map: fn(Node(a)) -> output, fold: fn(List(output)) -> output)

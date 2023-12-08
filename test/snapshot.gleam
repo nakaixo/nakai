@@ -1,6 +1,6 @@
-import gleam/erlang/file
+import simplifile
 import gleam/erlang/os
-import gleam/string_builder.{StringBuilder}
+import gleam/string_builder.{type StringBuilder}
 import gleeunit/should
 
 pub fn match(result: StringBuilder, snapshot_file: String) {
@@ -12,10 +12,10 @@ pub fn match_string(result: String, snapshot_file: String) {
   case os.get_env("SNAPSHOT") {
     // Check against existing snapshots!
     Error(Nil) | Ok("0") | Ok("false") ->
-      should.equal(Ok(result), file.read(snapshot_file))
+      should.equal(Ok(result), simplifile.read(snapshot_file))
     // Update all of the result snapshots
     _ -> {
-      let _ = file.write(result, snapshot_file)
+      let _ = simplifile.write(snapshot_file, result)
       Nil
     }
   }

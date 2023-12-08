@@ -1,6 +1,6 @@
-import gleam/option.{Option}
+import gleam/option.{type Option}
 import gleam/list
-import gleam/string_builder.{StringBuilder}
+import gleam/string_builder.{type StringBuilder}
 
 pub const encoding = "
 <meta charset=\"utf-8\" />

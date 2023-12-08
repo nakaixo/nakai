@@ -1,11 +1,11 @@
 // Not actually a test, but having this file in test/ prevents it from being published :^)
 
-import gleam/dynamic.{Dynamic}
-import gleam/erlang/file
+import gleam/dynamic.{type Dynamic}
 import gleam/json
 import gleam/list
 import gleam/result
 import gleam/string
+import simplifile
 
 const html_prefix = "
 
@@ -64,8 +64,8 @@ pub fn " <> name <> "(attrs: List(Attr(a))) -> Node(a) {
 }
 
 fn generate_nakai_html() {
-  let assert Ok(html_prelude) = file.read("./codegen/html_prelude.gleam")
-  let assert Ok(html_json) = file.read("./codegen/html.json")
+  let assert Ok(html_prelude) = simplifile.read("./codegen/html_prelude.gleam")
+  let assert Ok(html_json) = simplifile.read("./codegen/html.json")
   let assert Ok(html) =
     json.decode(from: html_json, using: dynamic.list(element_decoder))
 
@@ -77,7 +77,7 @@ fn generate_nakai_html() {
 
   // Produce nakai/html
   string.concat([html_prefix, html_prelude, code])
-  |> file.write("./src/nakai/html.gleam")
+  |> simplifile.write("./src/nakai/html.gleam", _)
 }
 
 const attrs_prefix = "
@@ -142,8 +142,9 @@ pub fn " <> func_name <> "() -> Attr(a) {
 }
 
 fn generate_nakai_html_attrs() {
-  let assert Ok(attrs_prelude) = file.read("./codegen/attrs_prelude.gleam")
-  let assert Ok(attrs_json) = file.read("./codegen/attrs.json")
+  let assert Ok(attrs_prelude) =
+    simplifile.read("./codegen/attrs_prelude.gleam")
+  let assert Ok(attrs_json) = simplifile.read("./codegen/attrs.json")
   let assert Ok(attrs) =
     json.decode(from: attrs_json, using: dynamic.list(attr_decoder))
 
@@ -155,7 +156,7 @@ fn generate_nakai_html_attrs() {
 
   // Produce nakai/html/attrs
   string.concat([attrs_prefix, attrs_prelude, code])
-  |> file.write("./src/nakai/html/attrs.gleam")
+  |> simplifile.write("./src/nakai/html/attrs.gleam", _)
 }
 
 pub fn main() {
