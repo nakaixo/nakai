@@ -1,7 +1,17 @@
+
+
+
+
+
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // * THIS FILE IS GENERATED. DO NOT EDIT IT.                                             *
 // * You're probably looking for ./codegen/html_prelude.gleam, or ./codegen/html.json.   *
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+
+
 
 import nakai/html/attrs.{type Attr}
 

@@ -17,5 +17,5 @@ gleam_stdlib = "~> 0.34"
 [dev-dependencies]
 gleam_erlang = "~> 0.23"
 gleam_json = "~> 0.7"
-gleeunit = "~> 0.11"
+gleeunit = "~> 1.0"
 glychee = "~> 0.3"
