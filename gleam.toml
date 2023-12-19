@@ -9,12 +9,13 @@ links = [
 ]
 
 internal_modules = ["nakai/internal/*", "nakai/experimental/*"]
+gleam = ">= 0.33.0"
 
 [dependencies]
-gleam_stdlib = "~> 0.29"
+gleam_stdlib = "~> 0.34"
 
 [dev-dependencies]
-gleam_erlang = "~> 0.19"
-gleam_json = "~> 0.5"
-gleeunit = "~> 0.10"
-glychee = "~> 0.2"
+gleam_erlang = "~> 0.23"
+gleam_json = "~> 0.7"
+gleeunit = "~> 0.11"
+glychee = "~> 0.3"

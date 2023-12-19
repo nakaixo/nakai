@@ -1,19 +1,9 @@
-
-
-
-
-
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // * THIS FILE IS GENERATED. DO NOT EDIT IT.                                             *
 // * You're probably looking for ./codegen/html_prelude.gleam, or ./codegen/html.json.   *
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-
-
-
-
-import nakai/html/attrs.{Attr}
+import nakai/html/attrs.{type Attr}
 
 pub type Node(a) {
   /// Can be used anywhere in the document, and will set the doctype of the document

@@ -25,13 +25,10 @@ fn puppies_list() {
 }
 
 pub fn app() {
-  html.Html(
-    [attrs.lang("en-US")],
-    [
-      html.Head([html.title("List of puppies!")]),
-      html.div([], [puppies_list()]),
-    ],
-  )
+  html.Html([attrs.lang("en-US")], [
+    html.Head([html.title("List of puppies!")]),
+    html.div([], [puppies_list()]),
+  ])
 }
 
 pub fn app_test() {

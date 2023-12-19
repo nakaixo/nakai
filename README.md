@@ -26,12 +26,11 @@ pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
 }
 
 pub fn app() -> String {
-  html.div(
-    [],
+  html.div([],
     [
       html.Head([html.title("Hello!")]),
       header([], "Hello, from Nakai!")
-    ],
+    ]
   )
   |> nakai.to_string()
 }
@@ -39,8 +38,7 @@ pub fn app() -> String {
 
 ## Development
 
-While Nakai itself is pure Gleam, the benchmarks require having [Elixir] installed,
-and some of its dependencies require [Rebar3] to compile.
+While Nakai itself is pure Gleam, and has no dependencies, the benchmarks require having [Elixir] installed, and building it requires that you have [Rebar3] installed.
 
 [elixir]: https://elixir-lang.org/
 [rebar3]: https://rebar3.org/

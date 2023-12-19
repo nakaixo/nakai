@@ -2,8 +2,8 @@ import snapshot
 // BEGIN README SNIPPET
 
 import nakai
-import nakai/html.{Node}
-import nakai/html/attrs.{Attr}
+import nakai/html.{type Node}
+import nakai/html/attrs.{type Attr}
 
 const header_style = "
   color: #331f26;
@@ -18,10 +18,10 @@ pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
 }
 
 pub fn app() -> String {
-  html.div(
-    [],
-    [html.Head([html.title("Hello!")]), header([], "Hello, from Nakai!")],
-  )
+  html.div([], [
+    html.Head([html.title("Hello!")]),
+    header([], "Hello, from Nakai!"),
+  ])
   |> nakai.to_string()
 }
 

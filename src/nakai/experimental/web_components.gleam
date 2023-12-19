@@ -1,5 +1,5 @@
-import nakai/html.{Element, LeafElement, Node}
-import nakai/html/attrs.{Attr}
+import nakai/html.{type Node, Element, LeafElement}
+import nakai/html/attrs.{type Attr}
 
 pub fn slot(attrs: List(Attr(a))) -> Node(a) {
   LeafElement(tag: "slot", attrs: attrs)

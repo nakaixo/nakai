@@ -1,17 +1,7 @@
-
-
-
-
-
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // * THIS FILE IS GENERATED. DO NOT EDIT IT.                                             *
 // * You're probably looking for ./codegen/attrs_prelude.gleam, or ./codegen/attrs.json. *
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-
-
-
 
 pub type Attr(a) {
   Attr(name: String, value: String)

@@ -1,6 +1,6 @@
 import gleam/erlang/file
 import gleam/erlang/os
-import gleam/string_builder.{StringBuilder}
+import gleam/string_builder.{type StringBuilder}
 import gleeunit/should
 
 pub fn match(result: StringBuilder, snapshot_file: String) {

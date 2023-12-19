@@ -1,6 +1,6 @@
 // Not actually a test, but having this file in test/ prevents it from being published :^)
 
-import gleam/dynamic.{Dynamic}
+import gleam/dynamic.{type Dynamic}
 import gleam/erlang/file
 import gleam/json
 import gleam/list
@@ -42,21 +42,43 @@ fn codegen_element(element: ElementDescription) -> String {
   case element {
     Element(name, leaf) if leaf == False ->
       "
-/// The [HTML `<" <> name <> ">` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
-pub fn " <> name <> "(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
-  Element(tag: \"" <> name <> "\", attrs: attrs, children: children)
+/// The [HTML `<"
+      <> name
+      <> ">` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/"
+      <> name
+      <> ")
+pub fn "
+      <> name
+      <> "(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
+  Element(tag: \""
+      <> name
+      <> "\", attrs: attrs, children: children)
 }
 
-/// Shorthand for `html." <> name <> "(attrs, children: [html.Text(text)])`
-pub fn " <> name <> "_text(attrs: List(Attr(a)), text: String) -> Node(a) {
-  Element(tag: \"" <> name <> "\", attrs: attrs, children: [Text(text)])
+/// Shorthand for `html."
+      <> name
+      <> "(attrs, children: [html.Text(text)])`
+pub fn "
+      <> name
+      <> "_text(attrs: List(Attr(a)), text: String) -> Node(a) {
+  Element(tag: \""
+      <> name
+      <> "\", attrs: attrs, children: [Text(text)])
 }
 "
     Element(name, leaf) if leaf == True ->
       "
-/// The [HTML `<" <> name <> " />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
-pub fn " <> name <> "(attrs: List(Attr(a))) -> Node(a) {
-  LeafElement(tag: \"" <> name <> "\", attrs: attrs)
+/// The [HTML `<"
+      <> name
+      <> " />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/"
+      <> name
+      <> ")
+pub fn "
+      <> name
+      <> "(attrs: List(Attr(a))) -> Node(a) {
+  LeafElement(tag: \""
+      <> name
+      <> "\", attrs: attrs)
 }
 "
     _ -> panic
@@ -128,14 +150,24 @@ fn codegen_attr(attr: AttrDescription) -> String {
   case attr {
     Attr(_) ->
       "
-pub fn " <> func_name <> "(value: String) -> Attr(a) {
-  Attr(name: \"" <> name <> "\", value: value)
+pub fn "
+      <> func_name
+      <> "(value: String) -> Attr(a) {
+  Attr(name: \""
+      <> name
+      <> "\", value: value)
 }
 "
     ConstAttr(_, value) ->
       "
-pub fn " <> func_name <> "() -> Attr(a) {
-  Attr(name: \"" <> name <> "\", value: \"" <> value <> "\")
+pub fn "
+      <> func_name
+      <> "() -> Attr(a) {
+  Attr(name: \""
+      <> name
+      <> "\", value: \""
+      <> value
+      <> "\")
 }
 "
   }

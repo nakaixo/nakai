@@ -1,4 +1,4 @@
-import nakai/html/attrs.{Attr}
+import nakai/html/attrs.{type Attr}
 
 pub type Node(a) {
   /// Can be used anywhere in the document, and will set the doctype of the document

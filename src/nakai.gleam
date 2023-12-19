@@ -10,8 +10,8 @@
 //// - A future experimental DOM renderer (meant for use in the browser) that isn't
 ////   actually done yet.
 
-import gleam/string_builder.{StringBuilder}
-import nakai/html.{Node}
+import gleam/string_builder.{type StringBuilder}
+import nakai/html.{type Node}
 import nakai/internal/render
 
 /// Renders a full HTML document from the given tree, into a `StringBuilder`.

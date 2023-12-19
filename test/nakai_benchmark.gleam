@@ -10,14 +10,12 @@ const benchmark_data = [
 
 pub fn main() {
   [
-    benchmark.Function(
-      "nakai.to_string_builder",
-      fn(app) { fn() { nakai.to_string_builder(app()) } },
-    ),
-    benchmark.Function(
-      "nakai.to_inline_string_builder",
-      fn(app) { fn() { nakai.to_inline_string_builder(app()) } },
-    ),
+    benchmark.Function("nakai.to_string_builder", fn(app) {
+      fn() { nakai.to_string_builder(app()) }
+    }),
+    benchmark.Function("nakai.to_inline_string_builder", fn(app) {
+      fn() { nakai.to_inline_string_builder(app()) }
+    }),
   ]
   |> benchmark.run(benchmark_data)
 }
