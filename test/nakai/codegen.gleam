@@ -1,11 +1,11 @@
 // Not actually a test, but having this file in test/ prevents it from being published :^)
 
 import gleam/dynamic.{type Dynamic}
-import gleam/erlang/file
 import gleam/json
 import gleam/list
 import gleam/result
 import gleam/string
+import simplifile as file
 
 const html_prefix = "
 
@@ -99,7 +99,7 @@ fn generate_nakai_html() {
 
   // Produce nakai/html
   string.concat([html_prefix, html_prelude, code])
-  |> file.write("./src/nakai/html.gleam")
+  |> file.write(to: "./src/nakai/html.gleam")
 }
 
 const attrs_prefix = "
@@ -187,7 +187,7 @@ fn generate_nakai_html_attrs() {
 
   // Produce nakai/html/attrs
   string.concat([attrs_prefix, attrs_prelude, code])
-  |> file.write("./src/nakai/html/attrs.gleam")
+  |> file.write(to: "./src/nakai/html/attrs.gleam")
 }
 
 pub fn main() {

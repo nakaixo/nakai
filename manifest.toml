@@ -2,13 +2,14 @@
 # You typically do not need to edit this file
 
 packages = [
-  { name = "benchee", version = "1.2.0", build_tools = ["mix"], requirements = ["table", "deep_merge", "statistex"], otp_app = "benchee", source = "hex", outer_checksum = "EE729E53217898B8FD30AAAD3CCE61973DAB61574AE6F48229FE7FF42D5E4457" },
+  { name = "benchee", version = "1.2.0", build_tools = ["mix"], requirements = ["deep_merge", "table", "statistex"], otp_app = "benchee", source = "hex", outer_checksum = "EE729E53217898B8FD30AAAD3CCE61973DAB61574AE6F48229FE7FF42D5E4457" },
   { name = "deep_merge", version = "1.0.0", build_tools = ["mix"], requirements = [], otp_app = "deep_merge", source = "hex", outer_checksum = "CE708E5F094B9CD4E8F2BE4F00D2F4250C4095BE93F8CD6D018C753894885430" },
   { name = "gleam_erlang", version = "0.23.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleam_erlang", source = "hex", outer_checksum = "C21CFB816C114784E669FFF4BBF433535EEA9960FA2F216209B8691E87156B96" },
-  { name = "gleam_json", version = "0.7.0", build_tools = ["gleam"], requirements = ["gleam_stdlib", "thoas"], otp_app = "gleam_json", source = "hex", outer_checksum = "CB405BD93A8828BCD870463DE29375E7B2D252D9D124C109E5B618AAC00B86FC" },
+  { name = "gleam_json", version = "0.7.0", build_tools = ["gleam"], requirements = ["thoas", "gleam_stdlib"], otp_app = "gleam_json", source = "hex", outer_checksum = "CB405BD93A8828BCD870463DE29375E7B2D252D9D124C109E5B618AAC00B86FC" },
   { name = "gleam_stdlib", version = "0.34.0", build_tools = ["gleam"], requirements = [], otp_app = "gleam_stdlib", source = "hex", outer_checksum = "1FB8454D2991E9B4C0C804544D8A9AD0F6184725E20D63C3155F0AEB4230B016" },
   { name = "gleeunit", version = "1.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "gleeunit", source = "hex", outer_checksum = "D3682ED8C5F9CAE1C928F2506DE91625588CC752495988CBE0F5653A42A6F334" },
   { name = "glychee", version = "0.3.0", build_tools = ["gleam"], requirements = ["benchee"], otp_app = "glychee", source = "hex", outer_checksum = "CB925EA2078B75ABAC0B363F6E12E0BD80197100863DAD97E96998BBBB25CAC8" },
+  { name = "simplifile", version = "1.0.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "simplifile", source = "hex", outer_checksum = "0BD6F0E7DA1A7E11D18B8AD48453225CAFCA4C8CFB4513D217B372D2866C501C" },
   { name = "statistex", version = "1.0.0", build_tools = ["mix"], requirements = [], otp_app = "statistex", source = "hex", outer_checksum = "FF9D8BEE7035028AB4742FF52FC80A2AA35CECE833CF5319009B52F1B5A86C27" },
   { name = "table", version = "0.1.2", build_tools = ["mix"], requirements = [], otp_app = "table", source = "hex", outer_checksum = "7E99BC7EFEF806315C7E65640724BF165C3061CDC5D854060F74468367065029" },
   { name = "thoas", version = "0.4.1", build_tools = ["rebar3"], requirements = [], otp_app = "thoas", source = "hex", outer_checksum = "4918D50026C073C4AB1388437132C77A6F6F7C8AC43C60C13758CC0ADCE2134E" },
@@ -20,3 +21,4 @@ gleam_json = { version = "~> 0.7" }
 gleam_stdlib = { version = "~> 0.34" }
 gleeunit = { version = "~> 1.0" }
 glychee = { version = "~> 0.3" }
+simplifile = { version = "~> 1.0" }
