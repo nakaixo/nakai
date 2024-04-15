@@ -10,8 +10,8 @@ gleam add nakai
 
 ```gleam
 import nakai
-import nakai/html.{Node}
-import nakai/html/attrs.{Attr}
+import nakai/html.{type Node}
+import nakai/html/attrs.{type Attr}
 
 const header_style = "
   color: #331f26;
