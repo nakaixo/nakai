@@ -40,45 +40,21 @@ fn element_decoder(
 
 fn codegen_element(element: ElementDescription) -> String {
   case element {
-    Element(name, leaf) if leaf == False ->
-      "
-/// The [HTML `<"
-      <> name
-      <> ">` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/"
-      <> name
-      <> ")
-pub fn "
-      <> name
-      <> "(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
-  Element(tag: \""
-      <> name
-      <> "\", attrs: attrs, children: children)
+    Element(name, leaf) if leaf == False -> "
+/// The [HTML `<" <> name <> ">` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
+pub fn " <> name <> "(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
+  Element(tag: \"" <> name <> "\", attrs: attrs, children: children)
 }
 
-/// Shorthand for `html."
-      <> name
-      <> "(attrs, children: [html.Text(text)])`
-pub fn "
-      <> name
-      <> "_text(attrs: List(Attr(a)), text: String) -> Node(a) {
-  Element(tag: \""
-      <> name
-      <> "\", attrs: attrs, children: [Text(text)])
+/// Shorthand for `html." <> name <> "(attrs, children: [html.Text(text)])`
+pub fn " <> name <> "_text(attrs: List(Attr(a)), text: String) -> Node(a) {
+  Element(tag: \"" <> name <> "\", attrs: attrs, children: [Text(text)])
 }
 "
-    Element(name, leaf) if leaf == True ->
-      "
-/// The [HTML `<"
-      <> name
-      <> " />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/"
-      <> name
-      <> ")
-pub fn "
-      <> name
-      <> "(attrs: List(Attr(a))) -> Node(a) {
-  LeafElement(tag: \""
-      <> name
-      <> "\", attrs: attrs)
+    Element(name, leaf) if leaf == True -> "
+/// The [HTML `<" <> name <> " />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
+pub fn " <> name <> "(attrs: List(Attr(a))) -> Node(a) {
+  LeafElement(tag: \"" <> name <> "\", attrs: attrs)
 }
 "
     _ -> panic
@@ -110,7 +86,7 @@ const attrs_prefix = "
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 // * THIS FILE IS GENERATED. DO NOT EDIT IT.                                             *
-// * You're probably looking for ./codegen/attrs_prelude.gleam, or ./codegen/attrs.json. *
+// * You're probably looking for ./codegen/attr_prelude.gleam, or ./codegen/attr.json.   *
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 
@@ -148,34 +124,22 @@ fn codegen_attr(attr: AttrDescription) -> String {
   }
 
   case attr {
-    Attr(_) ->
-      "
-pub fn "
-      <> func_name
-      <> "(value: String) -> Attr(a) {
-  Attr(name: \""
-      <> name
-      <> "\", value: value)
+    Attr(_) -> "
+pub fn " <> func_name <> "(value: String) -> Attr(a) {
+  Attr(name: \"" <> name <> "\", value: value)
 }
 "
-    ConstAttr(_, value) ->
-      "
-pub fn "
-      <> func_name
-      <> "() -> Attr(a) {
-  Attr(name: \""
-      <> name
-      <> "\", value: \""
-      <> value
-      <> "\")
+    ConstAttr(_, value) -> "
+pub fn " <> func_name <> "() -> Attr(a) {
+  Attr(name: \"" <> name <> "\", value: \"" <> value <> "\")
 }
 "
   }
 }
 
 fn generate_nakai_html_attrs() {
-  let assert Ok(attrs_prelude) = file.read("./codegen/attrs_prelude.gleam")
-  let assert Ok(attrs_json) = file.read("./codegen/attrs.json")
+  let assert Ok(attrs_prelude) = file.read("./codegen/attr_prelude.gleam")
+  let assert Ok(attrs_json) = file.read("./codegen/attr.json")
   let assert Ok(attrs) =
     json.decode(from: attrs_json, using: dynamic.list(attr_decoder))
 
@@ -187,7 +151,7 @@ fn generate_nakai_html_attrs() {
 
   // Produce nakai/html/attrs
   string.concat([attrs_prefix, attrs_prelude, code])
-  |> file.write(to: "./src/nakai/html/attrs.gleam")
+  |> file.write(to: "./src/nakai/html/attr.gleam")
 }
 
 pub fn main() {

@@ -1,0 +1,199 @@
+[
+	{
+		"name": "accept"
+	},
+	{
+		"name": "accept-charset"
+	},
+	{
+		"name": "action"
+	},
+	{
+		"name": "alt"
+	},
+	{
+		"name": "aria-checked",
+		"description": "aria-checked can be true, false, or mixed"
+	},
+	{
+		"name": "aria-current"
+	},
+	{
+		"name": "aria-disabled",
+		"value": "true"
+	},
+	{
+		"name": "aria-hidden",
+		"value": "true"
+	},
+	{
+		"name": "aria-invalid",
+		"value": "true"
+	},
+	{
+		"name": "aria-label"
+	},
+	{
+		"name": "aria-labelledby"
+	},
+	{
+		"name": "aria-placeholder"
+	},
+	{
+		"name": "aria-readonly"
+	},
+	{
+		"name": "aria-required"
+	},
+	{
+		"name": "async",
+		"value": "true"
+	},
+	{
+		"name": "autocapitalize"
+	},
+	{
+		"name": "autocomplete"
+	},
+	{
+		"name": "autofocus",
+		"value": "true"
+	},
+	{
+		"name": "autoplay",
+		"value": "true"
+	},
+	{
+		"name": "capture"
+	},
+	{
+		"name": "charset"
+	},
+	{
+		"name": "checked",
+		"value": "true"
+	},
+	{
+		"name": "cite"
+	},
+	{
+		"name": "class"
+	},
+	{
+		"name": "content"
+	},
+	{
+		"name": "contenteditable",
+		"value": "true"
+	},
+	{
+		"name": "crossorigin",
+		"value": "true"
+	},
+	{
+		"name": "defer",
+		"value": "true"
+	},
+	{
+		"name": "disabled",
+		"value": "true"
+	},
+	{
+		"name": "draggable",
+		"value": "true"
+	},
+	{
+		"name": "enctype"
+	},
+	{
+		"name": "for"
+	},
+	{
+		"name": "formaction"
+	},
+	{
+		"name": "height"
+	},
+	{
+		"name": "href"
+	},
+	{
+		"name": "http-equiv"
+	},
+	{
+		"name": "id"
+	},
+	{
+		"name": "integrity"
+	},
+	{
+		"name": "lang"
+	},
+	{
+		"name": "loop",
+		"value": "true"
+	},
+	{
+		"name": "maxlength"
+	},
+	{
+		"name": "method"
+	},
+	{
+		"name": "minlength"
+	},
+	{
+		"name": "name"
+	},
+	{
+		"name": "placeholder"
+	},
+	{
+		"name": "preload",
+		"value": "true"
+	},
+	{
+		"name": "property"
+	},
+	{
+		"name": "readonly",
+		"value": "true"
+	},
+	{
+		"name": "rel"
+	},
+	{
+		"name": "required"
+	},
+	{
+		"name": "role"
+	},
+	{
+		"name": "selected",
+		"value": "true"
+	},
+	{
+		"name": "src"
+	},
+	{
+		"name": "style"
+	},
+	{
+		"name": "tabindex"
+	},
+	{
+		"name": "target"
+	},
+	{
+		"name": "title"
+	},
+	{
+		"name": "type"
+	},
+	{
+		"name": "value"
+	},
+	{
+		"name": "width"
+	}
+]

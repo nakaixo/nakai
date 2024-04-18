@@ -38,6 +38,46 @@ pub fn alt(value: String) -> Attr(a) {
   Attr(name: "alt", value: value)
 }
 
+pub fn aria_checked(value: String) -> Attr(a) {
+  Attr(name: "aria-checked", value: value)
+}
+
+pub fn aria_current(value: String) -> Attr(a) {
+  Attr(name: "aria-current", value: value)
+}
+
+pub fn aria_disabled() -> Attr(a) {
+  Attr(name: "aria-disabled", value: "true")
+}
+
+pub fn aria_hidden() -> Attr(a) {
+  Attr(name: "aria-hidden", value: "true")
+}
+
+pub fn aria_invalid() -> Attr(a) {
+  Attr(name: "aria-invalid", value: "true")
+}
+
+pub fn aria_label(value: String) -> Attr(a) {
+  Attr(name: "aria-label", value: value)
+}
+
+pub fn aria_labelledby(value: String) -> Attr(a) {
+  Attr(name: "aria-labelledby", value: value)
+}
+
+pub fn aria_placeholder(value: String) -> Attr(a) {
+  Attr(name: "aria-placeholder", value: value)
+}
+
+pub fn aria_readonly(value: String) -> Attr(a) {
+  Attr(name: "aria-readonly", value: value)
+}
+
+pub fn aria_required(value: String) -> Attr(a) {
+  Attr(name: "aria-required", value: value)
+}
+
 pub fn async() -> Attr(a) {
   Attr(name: "async", value: "true")
 }
@@ -102,6 +142,10 @@ pub fn draggable() -> Attr(a) {
   Attr(name: "draggable", value: "true")
 }
 
+pub fn enctype(value: String) -> Attr(a) {
+  Attr(name: "enctype", value: value)
+}
+
 pub fn for(value: String) -> Attr(a) {
   Attr(name: "for", value: value)
 }
@@ -138,8 +182,16 @@ pub fn loop() -> Attr(a) {
   Attr(name: "loop", value: "true")
 }
 
+pub fn maxlength(value: String) -> Attr(a) {
+  Attr(name: "maxlength", value: value)
+}
+
 pub fn method(value: String) -> Attr(a) {
   Attr(name: "method", value: value)
+}
+
+pub fn minlength(value: String) -> Attr(a) {
+  Attr(name: "minlength", value: value)
 }
 
 pub fn name(value: String) -> Attr(a) {
@@ -164,6 +216,14 @@ pub fn readonly() -> Attr(a) {
 
 pub fn rel(value: String) -> Attr(a) {
   Attr(name: "rel", value: value)
+}
+
+pub fn required(value: String) -> Attr(a) {
+  Attr(name: "required", value: value)
+}
+
+pub fn role(value: String) -> Attr(a) {
+  Attr(name: "role", value: value)
 }
 
 pub fn selected() -> Attr(a) {
