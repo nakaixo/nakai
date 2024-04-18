@@ -1,9 +1,9 @@
 import gleam/list
 import gleam/option
-import gleam/string_builder.{type StringBuilder}
 import gleam/string
-import nakai/html.{type Node}
+import gleam/string_builder.{type StringBuilder}
 import nakai/attr.{type Attr, Attr}
+import nakai/html.{type Node}
 import nakai/internal/document.{type Document}
 
 type Builder(output) {

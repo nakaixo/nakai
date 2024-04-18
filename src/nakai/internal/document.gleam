@@ -1,5 +1,5 @@
-import gleam/option.{type Option}
 import gleam/list
+import gleam/option.{type Option}
 import gleam/string_builder.{type StringBuilder}
 
 pub const encoding = "

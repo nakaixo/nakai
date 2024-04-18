@@ -1,5 +1,5 @@
-import nakai/attr
 import gleeunit/should
+import nakai/attr
 
 pub fn attr_names_test() {
   attr.type_("text")

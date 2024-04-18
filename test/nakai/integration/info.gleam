@@ -1,6 +1,6 @@
 import nakai
-import nakai/html
 import nakai/attr
+import nakai/html
 import snapshot
 
 pub fn navigation() {

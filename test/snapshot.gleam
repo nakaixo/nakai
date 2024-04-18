@@ -1,7 +1,7 @@
 import envoy as env
-import simplifile as file
 import gleam/string_builder.{type StringBuilder}
 import gleeunit/should
+import simplifile as file
 
 pub fn match(result: StringBuilder, snapshot_file: String) {
   string_builder.to_string(result)

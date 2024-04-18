@@ -1,7 +1,7 @@
 import gleam/list
 import nakai
-import nakai/html
 import nakai/attr
+import nakai/html
 import snapshot
 
 type Puppy {

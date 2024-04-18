@@ -1,7 +1,7 @@
 import gleeunit/should
 import nakai
-import nakai/html
 import nakai/attr
+import nakai/html
 import snapshot
 
 pub fn empty_test() {

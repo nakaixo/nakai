@@ -1,9 +1,10 @@
 import snapshot
+
 // BEGIN README SNIPPET
 
 import nakai
-import nakai/html.{type Node}
 import nakai/attr.{type Attr}
+import nakai/html.{type Node}
 
 const header_style = "
   color: #331f26;
