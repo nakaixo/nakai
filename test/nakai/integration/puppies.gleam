@@ -1,7 +1,7 @@
 import gleam/list
 import nakai
 import nakai/html
-import nakai/html/attrs
+import nakai/attr
 import snapshot
 
 type Puppy {
@@ -25,7 +25,7 @@ fn puppies_list() {
 }
 
 pub fn app() {
-  html.Html([attrs.lang("en-US")], [
+  html.Html([attr.lang("en-US")], [
     html.Head([html.title("List of puppies!")]),
     html.div([], [puppies_list()]),
   ])

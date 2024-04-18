@@ -1,8 +1,7 @@
-pub type Attr(a) {
+pub type Attr {
   Attr(name: String, value: String)
-  Event(name: String, action: a)
 }
 
-pub fn data(name: String, value: String) -> Attr(a) {
+pub fn data(name: String, value: String) -> Attr {
   Attr(name: "data-" <> name, value: value)
 }

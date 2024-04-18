@@ -1,6 +1,6 @@
-import nakai/html/attrs.{type Attr}
+import nakai/attr.{type Attr}
 
-pub type Node(a) {
+pub type Node {
   /// Can be used anywhere in the document, and will set the doctype of the document
   /// being rendered. Usually not necessary, as documents have a default of `<!DOCTYPE html>`.
   /// ## Example
@@ -16,7 +16,7 @@ pub type Node(a) {
   ///   ...
   /// ])
   /// ```
-  Html(attrs: List(Attr(a)), children: List(Node(a)))
+  Html(attrs: List(Attr), children: List(Node))
   /// Used for placing content in the `<head>` of the document. Useful for elements like
   /// `<meta>`, `<title>`, `<link>`, etc.
   /// ## Example
@@ -30,7 +30,7 @@ pub type Node(a) {
   ///   ])
   /// ])
   /// ```
-  Head(children: List(Node(a)))
+  Head(children: List(Node))
   /// Used for setting attributes on the `<body>` element of the document. Children
   /// will be rendered in-place, equivalent to using `html.Fragment(children)`.
   /// ## Example
@@ -39,7 +39,7 @@ pub type Node(a) {
   ///   ...
   /// ])
   /// ```
-  Body(attrs: List(Attr(a)), children: List(Node(a)))
+  Body(attrs: List(Attr), children: List(Node))
   /// An "transparent" container that will render it's children, but does not add anything
   /// itself to the document. If you've ever used `React.Fragment` or `<>` and `</>` in
   /// JSX/React, this is that.
@@ -59,7 +59,7 @@ pub type Node(a) {
   /// //   <li>Toby</li>
   /// // </ul>
   /// ```
-  Fragment(children: List(Node(a)))
+  Fragment(children: List(Node))
   /// An HTML element. You shouldn't need to reach for this very often, but it can be a
   /// handy escape hatch if there isn't a shorthand function for the element type you need.
   /// ## Example
@@ -67,7 +67,7 @@ pub type Node(a) {
   /// // bad example, pls use `html.div`
   /// html.Element("div", [], [html.Text("hello, lucy!")])
   /// ```
-  Element(tag: String, attrs: List(Attr(a)), children: List(Node(a)))
+  Element(tag: String, attrs: List(Attr), children: List(Node))
   /// An HTML element, but that does not have any children, and should be self closing.
   /// Similarly to `Element`, you shouldn't really need this, except as an escape hatch
   /// if there isn't a shorthand function for the element type you need.
@@ -76,7 +76,7 @@ pub type Node(a) {
   /// // bad example, pls use `html.link`
   /// html.LeafElement("link", [attrs.rel("stylesheet"), attrs.href(...)])
   /// ```
-  LeafElement(tag: String, attrs: List(Attr(a)))
+  LeafElement(tag: String, attrs: List(Attr))
   /// An HTML comment, which will be included in the document.
   /// ## Example
   /// ```gleam
@@ -134,6 +134,6 @@ pub type Node(a) {
 }
 
 /// The HTML [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) element
-pub fn title(text: String) -> Node(a) {
+pub fn title(text: String) -> Node {
   Element("title", [], [Text(text)])
 }

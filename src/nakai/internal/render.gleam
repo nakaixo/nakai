@@ -3,11 +3,11 @@ import gleam/option
 import gleam/string_builder.{type StringBuilder}
 import gleam/string
 import nakai/html.{type Node}
-import nakai/html/attrs.{type Attr, Attr, Event}
+import nakai/attr.{type Attr, Attr}
 import nakai/internal/document.{type Document}
 
-type Builder(a, output) {
-  Builder(map: fn(Node(a)) -> output, fold: fn(List(output)) -> output)
+type Builder(output) {
+  Builder(map: fn(Node) -> output, fold: fn(List(output)) -> output)
 }
 
 const document_builder = Builder(
@@ -24,37 +24,28 @@ fn render_doctype(doctype: String) -> StringBuilder {
   string_builder.from_strings(["<!DOCTYPE ", doctype, ">\n"])
 }
 
-fn render_children(
-  children: List(Node(a)),
-  builder: Builder(a, output),
-) -> output {
+fn render_children(children: List(Node), builder: Builder(output)) -> output {
   children
   |> list.map(builder.map)
   |> builder.fold()
 }
 
-fn render_attrs(attrs: List(Attr(a))) -> StringBuilder {
+fn render_attrs(attrs: List(Attr)) -> StringBuilder {
   attrs
   |> list.map(render_attr)
   |> list.fold(string_builder.new(), string_builder.append_builder)
 }
 
-fn render_attr(attr: Attr(a)) -> StringBuilder {
-  case attr {
-    Attr(name, value) -> {
-      let sanitized_value =
-        value
-        |> string.replace("\"", "&quot;")
-        |> string.replace(">", "&gt;")
-      string_builder.from_strings([" ", name, "=\"", sanitized_value, "\""])
-    }
-    Event(_name, _action) -> {
-      string_builder.new()
-    }
-  }
+fn render_attr(attr: Attr) -> StringBuilder {
+  let Attr(name, value) = attr
+  let sanitized_value =
+    value
+    |> string.replace("\"", "&quot;")
+    |> string.replace(">", "&gt;")
+  string_builder.from_strings([" ", name, "=\"", sanitized_value, "\""])
 }
 
-fn render_document_node(tree: Node(a)) -> Document {
+fn render_document_node(tree: Node) -> Document {
   case tree {
     html.Doctype(doctype) -> document.from_doctype(doctype)
 
@@ -117,7 +108,7 @@ fn render_document_node(tree: Node(a)) -> Document {
   }
 }
 
-fn render_inline_node(tree: Node(a)) -> StringBuilder {
+fn render_inline_node(tree: Node) -> StringBuilder {
   case tree {
     html.Doctype(doctype) -> render_doctype(doctype)
 
@@ -167,7 +158,7 @@ fn render_inline_node(tree: Node(a)) -> StringBuilder {
 
     html.Script(script) ->
       render_inline_node(
-        html.Element("script", [attrs.type_("module")], [html.Text(script)]),
+        html.Element("script", [attr.type_("module")], [html.Text(script)]),
       )
 
     html.Nothing -> string_builder.new()
@@ -188,7 +179,7 @@ fn render_scripts(scripts: List(String)) -> StringBuilder {
   |> string_builder.concat()
 }
 
-pub fn render_document(tree: Node(a)) -> StringBuilder {
+pub fn render_document(tree: Node) -> StringBuilder {
   let result = render_document_node(tree)
   string_builder.concat([
     render_doctype(
@@ -208,6 +199,6 @@ pub fn render_document(tree: Node(a)) -> StringBuilder {
   ])
 }
 
-pub fn render_inline(tree: Node(a)) -> StringBuilder {
+pub fn render_inline(tree: Node) -> StringBuilder {
   render_inline_node(tree)
 }

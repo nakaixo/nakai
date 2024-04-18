@@ -42,18 +42,18 @@ fn codegen_element(element: ElementDescription) -> String {
   case element {
     Element(name, leaf) if leaf == False -> "
 /// The [HTML `<" <> name <> ">` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
-pub fn " <> name <> "(attrs: List(Attr(a)), children: List(Node(a))) -> Node(a) {
+pub fn " <> name <> "(attrs: List(Attr), children: List(Node)) -> Node {
   Element(tag: \"" <> name <> "\", attrs: attrs, children: children)
 }
 
 /// Shorthand for `html." <> name <> "(attrs, children: [html.Text(text)])`
-pub fn " <> name <> "_text(attrs: List(Attr(a)), text: String) -> Node(a) {
+pub fn " <> name <> "_text(attrs: List(Attr), text: String) -> Node {
   Element(tag: \"" <> name <> "\", attrs: attrs, children: [Text(text)])
 }
 "
     Element(name, leaf) if leaf == True -> "
 /// The [HTML `<" <> name <> " />` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/" <> name <> ")
-pub fn " <> name <> "(attrs: List(Attr(a))) -> Node(a) {
+pub fn " <> name <> "(attrs: List(Attr)) -> Node {
   LeafElement(tag: \"" <> name <> "\", attrs: attrs)
 }
 "
@@ -125,12 +125,12 @@ fn codegen_attr(attr: AttrDescription) -> String {
 
   case attr {
     Attr(_) -> "
-pub fn " <> func_name <> "(value: String) -> Attr(a) {
+pub fn " <> func_name <> "(value: String) -> Attr {
   Attr(name: \"" <> name <> "\", value: value)
 }
 "
     ConstAttr(_, value) -> "
-pub fn " <> func_name <> "() -> Attr(a) {
+pub fn " <> func_name <> "() -> Attr {
   Attr(name: \"" <> name <> "\", value: \"" <> value <> "\")
 }
 "
@@ -151,7 +151,7 @@ fn generate_nakai_html_attrs() {
 
   // Produce nakai/html/attrs
   string.concat([attrs_prefix, attrs_prelude, code])
-  |> file.write(to: "./src/nakai/html/attr.gleam")
+  |> file.write(to: "./src/nakai/attr.gleam")
 }
 
 pub fn main() {

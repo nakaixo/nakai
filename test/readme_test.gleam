@@ -3,7 +3,7 @@ import snapshot
 
 import nakai
 import nakai/html.{type Node}
-import nakai/html/attrs.{type Attr}
+import nakai/attr.{type Attr}
 
 const header_style = "
   color: #331f26;
@@ -12,8 +12,8 @@ const header_style = "
   font-weight: 400;
 "
 
-pub fn header(attrs: List(Attr(a)), text: String) -> Node(a) {
-  let attrs = [attrs.style(header_style), ..attrs]
+pub fn header(attrs: List(Attr), text: String) -> Node {
+  let attrs = [attr.style(header_style), ..attrs]
   html.h1_text(attrs, text)
 }
 

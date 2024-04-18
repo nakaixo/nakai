@@ -1,8 +1,7 @@
 import gleeunit/should
 import nakai
-import nakai/experimental/on
 import nakai/html
-import nakai/html/attrs
+import nakai/attr
 import snapshot
 
 pub fn empty_test() {
@@ -26,13 +25,13 @@ pub fn head_test() {
 }
 
 pub fn attrs_on_html_test() {
-  html.Html([attrs.lang("en-US")], [html.p_text([], "Hello!")])
+  html.Html([attr.lang("en-US")], [html.p_text([], "Hello!")])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/attrs_on_html.html")
 }
 
 pub fn attrs_on_body_test() {
-  html.Body([attrs.class("dark-mode")], [html.p_text([], "Hello!")])
+  html.Body([attr.class("dark-mode")], [html.p_text([], "Hello!")])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/attrs_on_body.html")
 }
@@ -52,17 +51,13 @@ pub fn text_sanitization_test() {
 }
 
 pub fn attr_sanitization_test() {
-  html.div([attrs.id("\"><script>alert('pwned');</script>")], [])
+  html.div([attr.id("\"><script>alert('pwned');</script>")], [])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/attr_sanitization_1.html")
-
-  html.div([on.click("\"><script>alert('pwned');</script>")], [])
-  |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/attr_sanitization_2.html")
 }
 
 pub fn attributes_that_are_gleam_keywords_test() {
-  html.input([attrs.type_("text")])
+  html.input([attr.type_("text")])
   |> nakai.to_string_builder()
   |> snapshot.match("./test/testdata/attributes_that_are_gleam_keywords.html")
 }
@@ -70,8 +65,8 @@ pub fn attributes_that_are_gleam_keywords_test() {
 pub fn attributes_with_hyphens_test() {
   html.Head([
     html.meta([
-      attrs.http_equiv("content-security-policy"),
-      attrs.content("default-src 'self';"),
+      attr.http_equiv("content-security-policy"),
+      attr.content("default-src 'self';"),
     ]),
   ])
   |> nakai.to_string_builder()
@@ -107,8 +102,8 @@ pub fn inline_test() {
   |> should.equal("<div><h1>Bandit</h1><p>He's a really good boy!</p></div>")
 
   html.div([], [
-    html.Body([attrs.class("lol")], [
-      html.Html([attrs.lang("en-US")], [
+    html.Body([attr.class("lol")], [
+      html.Html([attr.lang("en-US")], [
         html.p_text([], "This is obviously a very silly thing to do"),
       ]),
     ]),

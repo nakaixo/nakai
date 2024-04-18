@@ -20,7 +20,7 @@ import nakai/internal/render
 /// html.div_text([], "hello, lucy!")
 /// |> nakai.to_string_builder()
 /// ```
-pub fn to_string_builder(tree: Node(a)) -> StringBuilder {
+pub fn to_string_builder(tree: Node) -> StringBuilder {
   render.render_document(tree)
 }
 
@@ -30,7 +30,7 @@ pub fn to_string_builder(tree: Node(a)) -> StringBuilder {
 /// html.div_text([], "hello, lucy!")
 /// |> nakai.to_string()
 /// ```
-pub fn to_string(tree: Node(a)) -> String {
+pub fn to_string(tree: Node) -> String {
   render.render_document(tree)
   |> string_builder.to_string()
 }
@@ -43,7 +43,7 @@ pub fn to_string(tree: Node(a)) -> String {
 /// html.div_text([], "hello, lucy!")
 /// |> nakai.to_inline_string_builder()
 /// ```
-pub fn to_inline_string_builder(tree: Node(a)) -> StringBuilder {
+pub fn to_inline_string_builder(tree: Node) -> StringBuilder {
   render.render_inline(tree)
 }
 
@@ -55,7 +55,7 @@ pub fn to_inline_string_builder(tree: Node(a)) -> StringBuilder {
 /// html.div_text([], "hello, lucy!")
 /// |> nakai.to_inline_string()
 /// ```
-pub fn to_inline_string(tree: Node(a)) -> String {
+pub fn to_inline_string(tree: Node) -> String {
   render.render_inline(tree)
   |> string_builder.to_string()
 }
