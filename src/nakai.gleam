@@ -1,20 +1,26 @@
-//// Nakai has several "builders" that can be used.
-//// - A `document` builder (the recommend one) that renders a full HTML document,
-////   does a little magic to dedepulicate `<head>` elements, and some other things
-////   that generally fit the theme of "rendering a full, valid, HTML document"
+//// Nakai has several built-in "builders" that can be used.
+////
+//// - A `document` builder (the recommend one) that renders a full HTML document, does a
+////   little magic to dedepulicate `<head>` elements, and some other things that generally fit
+////   the theme of "rendering a full, valid, HTML document". It will generate a document which
+////   is configured to use UTF-8 encoding, as that is the encoding for all `String`s in Gleam.
+////
 //// - An `inline` builder that should mostly be used for snippets, and partial bits of
 ////   HTML that will be inlined into a full document; hence the name. It renders things
-////   much more literally. If you tell it to give you a `<head>` element inside a
-////   `<p>`, it will, as an example. As a benefit for the trade off, it can be much
-////   faster for certain use cases.
-//// - A future experimental DOM renderer (meant for use in the browser) that isn't
-////   actually done yet.
+////   much more literally. For example, if you tell it to give you a `<head>` element inside a
+////   `<p>`, it will. As a benefit for the trade off, it can be much faster for certain use
+////   cases.
 
 import gleam/string_builder.{type StringBuilder}
 import nakai/html.{type Node}
 import nakai/internal/render
 
 /// Renders a full HTML document from the given tree, into a `StringBuilder`.
+///
+/// Since `String`s in Gleam are always UTF-8 encoded, Nakai will automatically set
+/// `<meta charset="utf-8" />`, as it's the only option that makes sense, and will prevent
+/// incorrect rendering of glyphs if you don't set it yourself.
+///
 /// ## Examples
 /// ```gleam
 /// html.div_text([], "hello, lucy!")
@@ -25,6 +31,11 @@ pub fn to_string_builder(tree: Node) -> StringBuilder {
 }
 
 /// Renders a full HTML document from the given tree, into a `String`.
+///
+/// Since `String`s in Gleam are always UTF-8 encoded, Nakai will automatically set
+/// `<meta charset="utf-8" />`, as it's the only option that makes sense, and will prevent
+/// incorrect rendering of glyphs if you don't set it yourself.
+///
 /// ## Examples
 /// ```gleam
 /// html.div_text([], "hello, lucy!")
@@ -38,6 +49,7 @@ pub fn to_string(tree: Node) -> String {
 /// Renders only the provided HTML, exactly as provided (disables `<head>`
 /// deduplication, etc.), into a `StringBuilder`. Useful for generating snippets
 /// instead of whole pages.
+///
 /// ## Examples
 /// ```gleam
 /// html.div_text([], "hello, lucy!")
@@ -50,6 +62,7 @@ pub fn to_inline_string_builder(tree: Node) -> StringBuilder {
 /// Renders only the provided HTML, exactly as provided (disables `<head>`
 /// deduplication, etc.), into a `String`. Useful for generating snippets instead
 /// of whole pages.
+///
 /// ## Examples
 /// ```gleam
 /// html.div_text([], "hello, lucy!")
