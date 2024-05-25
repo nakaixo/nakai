@@ -12,7 +12,7 @@ pub type Node {
   /// will be rendered in-place, equivalent to using `html.Fragment(children)`.
   /// ## Example
   /// ```gleam
-  /// html.Html([attrs.lang("en-US")], [
+  /// html.Html([attr.lang("en-US")], [
   ///   ...
   /// ])
   /// ```
@@ -35,7 +35,7 @@ pub type Node {
   /// will be rendered in-place, equivalent to using `html.Fragment(children)`.
   /// ## Example
   /// ```gleam
-  /// html.Body([attrs.class("dark-mode")], [
+  /// html.Body([attr.class("dark-mode")], [
   ///   ...
   /// ])
   /// ```
@@ -74,7 +74,7 @@ pub type Node {
   /// ## Example
   /// ```gleam
   /// // bad example, pls use `html.link`
-  /// html.LeafElement("link", [attrs.rel("stylesheet"), attrs.href(...)])
+  /// html.LeafElement("link", [attr.rel("stylesheet"), attr.href(...)])
   /// ```
   LeafElement(tag: String, attrs: List(Attr))
   /// An HTML comment, which will be included in the document.
@@ -122,7 +122,10 @@ pub type Node {
   /// any other script, so **do not use any untrusted input**.
   /// ## Example
   /// ```gleam
-  /// html.Script("alert('hello, lucy!')")
+  /// html.Script([], "alert('hello, lucy!')")
+  /// ```
+  /// ```gleam
+  /// html.Script([attr.type_("module"), attr.src(...)], "")
   /// ```
   Script(attrs: List(Attr), content: String)
   /// Renders absolutely nothing. For when you may or may not have something to render,

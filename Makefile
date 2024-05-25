@@ -8,12 +8,15 @@ all: build
 # `gleam run -m ...` does a full build, but we need to run it again after our codegen
 # step, or we might end up with the build artifacts being stale, if the new generated
 # is different.
-build:
-	@$(GLEAM) run -m nakai_codegen
+build: codegen
 	@$(GLEAM) build
 .PHONY: build
 
-docs: build
+codegen:
+	@$(GLEAM) run -m nakai_codegen
+.PHONY: codegen
+
+docs: codegen
 	@$(GLEAM) docs build
 .PHONY: docs
 
@@ -22,11 +25,11 @@ format:
 	@$(GLEAM) run -m nakai_codegen
 .PHONY: format
 
-test: build
+test: codegen
 	@$(GLEAM) test
 .PHONY: test
 
-bench: build
+bench: codegen
 	@$(GLEAM) run -m nakai_benchmark
 .PHONY: bench
 
