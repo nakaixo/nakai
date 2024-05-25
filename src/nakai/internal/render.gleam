@@ -102,7 +102,16 @@ fn render_document_node(tree: Node) -> Document {
       string_builder.from_string(content)
       |> document.from_body()
 
-    html.Script(script) -> document.from_script(script)
+    html.Script(attrs, content) ->
+      document.from_script(
+        string_builder.concat([
+          string_builder.from_string("\n<script"),
+          render_attrs(attrs),
+          string_builder.from_string(">"),
+          string_builder.from_string(content),
+          string_builder.from_string("</script>"),
+        ]),
+      )
 
     html.Nothing -> document.new()
   }
@@ -156,29 +165,17 @@ fn render_inline_node(tree: Node) -> StringBuilder {
 
     html.UnsafeInlineHtml(content) -> string_builder.from_string(content)
 
-    html.Script(script) ->
-      render_inline_node(
-        html.Element("script", [attr.type_("module")], [
-          html.UnsafeInlineHtml(script),
-        ]),
-      )
+    html.Script(attrs, content) ->
+      string_builder.concat([
+        string_builder.from_string("<script"),
+        render_attrs(attrs),
+        string_builder.from_string(">"),
+        string_builder.from_string(content),
+        string_builder.from_string("</script>"),
+      ])
 
     html.Nothing -> string_builder.new()
   }
-}
-
-fn render_script(script: String) -> StringBuilder {
-  string_builder.concat([
-    string_builder.from_string("<script>"),
-    string_builder.from_string(script),
-    string_builder.from_string("</script>\n"),
-  ])
-}
-
-fn render_scripts(scripts: List(String)) -> StringBuilder {
-  scripts
-  |> list.map(render_script)
-  |> string_builder.concat()
 }
 
 pub fn render_document(tree: Node) -> StringBuilder {
@@ -196,7 +193,7 @@ pub fn render_document(tree: Node) -> StringBuilder {
     result.body_attrs,
     string_builder.from_string(">"),
     result.body,
-    render_scripts(result.scripts),
+    string_builder.concat(result.scripts),
     string_builder.from_string("</body>\n</html>\n"),
   ])
 }

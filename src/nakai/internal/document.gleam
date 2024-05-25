@@ -14,7 +14,7 @@ pub type Document {
     body_attrs: StringBuilder,
     head: StringBuilder,
     body: StringBuilder,
-    scripts: List(String),
+    scripts: List(StringBuilder),
   )
 }
 
@@ -84,7 +84,7 @@ pub fn replace_body(self: Document, body: StringBuilder) -> Document {
   Document(..self, body: body)
 }
 
-pub fn from_script(script: String) -> Document {
+pub fn from_script(script: StringBuilder) -> Document {
   Document(..new(), scripts: [script])
 }
 
