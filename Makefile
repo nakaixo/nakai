@@ -9,7 +9,7 @@ all: build
 # step, or we might end up with the build artifacts being stale, if the new generated
 # is different.
 build:
-	@$(GLEAM) run -m nakai/codegen
+	@$(GLEAM) run -m nakai_codegen
 	@$(GLEAM) build
 .PHONY: build
 
@@ -19,7 +19,7 @@ docs: build
 
 format:
 	@$(GLEAM) format
-	@$(GLEAM) run -m nakai/codegen
+	@$(GLEAM) run -m nakai_codegen
 .PHONY: format
 
 test: build
@@ -29,3 +29,7 @@ test: build
 bench: build
 	@$(GLEAM) run -m nakai_benchmark
 .PHONY: bench
+
+clean:
+	@$(GLEAM) clean
+.PHONY: clean

@@ -11,7 +11,7 @@ runs:
 
     - run: |
         gleam format
-        gleam run -m nakai/codegen
+        gleam run -m nakai_codegen
         git diff --exit-code
       name: Check formatting
       shell: bash

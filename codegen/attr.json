@@ -13,7 +13,7 @@
 	},
 	{
 		"name": "aria-checked",
-		"description": "aria-checked can be true, false, or mixed"
+		"description": "aria-checked can be true, false, or mixed."
 	},
 	{
 		"name": "aria-current"

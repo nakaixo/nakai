@@ -158,7 +158,9 @@ fn render_inline_node(tree: Node) -> StringBuilder {
 
     html.Script(script) ->
       render_inline_node(
-        html.Element("script", [attr.type_("module")], [html.Text(script)]),
+        html.Element("script", [attr.type_("module")], [
+          html.UnsafeInlineHtml(script),
+        ]),
       )
 
     html.Nothing -> string_builder.new()

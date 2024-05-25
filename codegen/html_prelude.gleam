@@ -112,9 +112,13 @@ pub type Node {
   /// // Oh no, we just got got! D:
   /// ```
   UnsafeInlineHtml(content: String)
-  /// Add some JavaScript to your page! Scripts will always be inserted at the end of the
-  /// page, regardless of where in the document the `Script` node is, so that your content
-  /// loads first.
+  /// Add some JavaScript to your page! When using the document renderer, scripts will always be
+  /// inserted at the end of the page, regardless of where in the document the `Script` node is, so
+  /// that your content loads first.
+  /// If you're using the inline renderer, the script will just be placed as is.
+  /// Nakai does not do any validation of the script content! If it contains a `</script>`, weird
+  /// things will happen. It's also, naturally, a script, with full access to everything, just like
+  /// any other script, so **do not use any untrusted input**.
   /// ## Example
   /// ```gleam
   /// html.Script("alert('hello, lucy!')")

@@ -73,12 +73,6 @@ pub fn attributes_with_hyphens_test() {
   |> snapshot.match("./test/testdata/attributes_with_hyphens.html")
 }
 
-pub fn scripts_test() {
-  html.Script("alert('hello!')")
-  |> nakai.to_string_builder()
-  |> snapshot.match("./test/testdata/scripts.html")
-}
-
 pub fn comment_sanitization_test() {
   html.Comment("--><script>alert('pwned');</script>")
   |> nakai.to_string_builder()

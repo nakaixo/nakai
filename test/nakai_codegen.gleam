@@ -123,6 +123,8 @@ fn codegen_attr(attr: AttrDescription) -> String {
       |> string.replace("-", "_")
   }
 
+  // TODO: Figure out a nice way to link to attribute docs. This doesn't quite work:
+  // /// The [HTML `" <> name <> "` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/" <> name <> ")
   case attr {
     Attr(_) -> "
 pub fn " <> func_name <> "(value: String) -> Attr {
