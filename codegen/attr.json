@@ -87,8 +87,7 @@
 		"value": "true"
 	},
 	{
-		"name": "crossorigin",
-		"value": "true"
+		"name": "crossorigin"
 	},
 	{
 		"name": "defer",

@@ -125,8 +125,8 @@ pub fn contenteditable() -> Attr {
   Attr(name: "contenteditable", value: "true")
 }
 
-pub fn crossorigin() -> Attr {
-  Attr(name: "crossorigin", value: "true")
+pub fn crossorigin(value: String) -> Attr {
+  Attr(name: "crossorigin", value: value)
 }
 
 pub fn defer() -> Attr {
